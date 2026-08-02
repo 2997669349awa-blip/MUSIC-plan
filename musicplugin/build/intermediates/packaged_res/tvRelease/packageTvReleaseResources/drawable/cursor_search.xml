@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    v1.2.7：搜索框光标修复
+    问题：EditText layout_height=match_parent 时，文字/光标默认 top 对齐，
+          与 hint 不在同一基线，光标显示在 hint 下方
+    修复：textCursorDrawable 用自定义绿色光标 + gravity=center_vertical 让文字与光标垂直居中
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <size android:width="2dp" />
+    <solid android:color="#FF1ED760" />
+    <corners android:radius="1dp" />
+</shape>

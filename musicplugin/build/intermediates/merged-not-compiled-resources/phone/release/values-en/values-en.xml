@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GreenNote Music</string>
+    <string name="empty_playlist">Playlist is empty</string>
+    <string name="grant">Grant</string>
+    <string name="local_music">Local Music</string>
+    <string name="lyrics">Lyrics</string>
+    <string name="mode_loop">List Loop</string>
+    <string name="mode_shuffle">Shuffle</string>
+    <string name="mode_single">Single Loop</string>
+    <string name="mv">MV</string>
+    <string name="next">Next</string>
+    <string name="no_music">No music found\nTap scan in the top right</string>
+    <string name="online_music">Online Music</string>
+    <string name="pause">Pause</string>
+    <string name="permission_required">Storage permission required to scan music</string>
+    <string name="play">Play</string>
+    <string name="playlist">Playlist</string>
+    <string name="prev">Prev</string>
+    <string name="quality">Quality</string>
+    <string name="quality_high">High</string>
+    <string name="quality_lossless">Lossless</string>
+    <string name="quality_standard">Standard</string>
+    <string name="scan_complete">Scan complete, found %1$d songs</string>
+    <string name="scan_music">Scan</string>
+    <string name="scanning">Scanning...</string>
+    <string name="search">Search</string>
+    <string name="search_hint">Search songs, artists</string>
+</resources>

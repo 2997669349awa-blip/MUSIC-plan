@@ -1,0 +1,271 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.filemanager"
+4    android:versionCode="12"
+5    android:versionName="1.6.5" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="29"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission
+11-->/workspace/FileManager/app/src/main/AndroidManifest.xml:5:5-6:38
+12        android:name="android.permission.READ_EXTERNAL_STORAGE"
+12-->/workspace/FileManager/app/src/main/AndroidManifest.xml:5:22-77
+13        android:maxSdkVersion="32" />
+13-->/workspace/FileManager/app/src/main/AndroidManifest.xml:6:9-35
+14    <uses-permission
+14-->/workspace/FileManager/app/src/main/AndroidManifest.xml:7:5-8:38
+15        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+15-->/workspace/FileManager/app/src/main/AndroidManifest.xml:7:22-78
+16        android:maxSdkVersion="29" />
+16-->/workspace/FileManager/app/src/main/AndroidManifest.xml:8:9-35
+17    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+17-->/workspace/FileManager/app/src/main/AndroidManifest.xml:9:5-10:40
+17-->/workspace/FileManager/app/src/main/AndroidManifest.xml:9:22-79
+18    <!--
+19         查询所有包权限：Android 11+ 包可见性限制需要此权限才能查询/启动其他应用
+20         （如三角洲行动）。私有应用使用，不上 Play Store。
+21    -->
+22    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+22-->/workspace/FileManager/app/src/main/AndroidManifest.xml:13:5-14:53
+22-->/workspace/FileManager/app/src/main/AndroidManifest.xml:13:22-74
+23
+24    <!-- 显式声明要查询的包名（双保险，即使 QUERY_ALL_PACKAGES 被限制也能查询） -->
+25    <queries>
+25-->/workspace/FileManager/app/src/main/AndroidManifest.xml:17:5-26:15
+26        <package android:name="com.tencent.tmgp.dfm" />
+26-->/workspace/FileManager/app/src/main/AndroidManifest.xml:18:9-56
+26-->/workspace/FileManager/app/src/main/AndroidManifest.xml:18:18-53
+27        <package android:name="moe.shizuku.privileged.api" />
+27-->/workspace/FileManager/app/src/main/AndroidManifest.xml:19:9-62
+27-->/workspace/FileManager/app/src/main/AndroidManifest.xml:19:18-59
+28        <package android:name="rikka.shizuku" />
+28-->/workspace/FileManager/app/src/main/AndroidManifest.xml:20:9-49
+28-->/workspace/FileManager/app/src/main/AndroidManifest.xml:20:18-46
+29        <package android:name="com.example.musicplugin" />
+29-->/workspace/FileManager/app/src/main/AndroidManifest.xml:21:9-59
+29-->/workspace/FileManager/app/src/main/AndroidManifest.xml:21:18-56
+30
+31        <intent>
+31-->/workspace/FileManager/app/src/main/AndroidManifest.xml:22:9-25:18
+32            <action android:name="android.intent.action.MAIN" />
+32-->/workspace/FileManager/app/src/main/AndroidManifest.xml:23:13-65
+32-->/workspace/FileManager/app/src/main/AndroidManifest.xml:23:21-62
+33
+34            <category android:name="android.intent.category.LAUNCHER" />
+34-->/workspace/FileManager/app/src/main/AndroidManifest.xml:24:13-73
+34-->/workspace/FileManager/app/src/main/AndroidManifest.xml:24:23-70
+35        </intent>
+36    </queries>
+37
+38    <permission
+38-->[androidx.core:core:1.13.1] /root/.gradle/caches/8.14.4/transforms/833f513205531a6ef9ece6234a696fda/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+39        android:name="com.example.filemanager.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+39-->[androidx.core:core:1.13.1] /root/.gradle/caches/8.14.4/transforms/833f513205531a6ef9ece6234a696fda/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+40        android:protectionLevel="signature" />
+40-->[androidx.core:core:1.13.1] /root/.gradle/caches/8.14.4/transforms/833f513205531a6ef9ece6234a696fda/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+41
+42    <uses-permission android:name="com.example.filemanager.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+42-->[androidx.core:core:1.13.1] /root/.gradle/caches/8.14.4/transforms/833f513205531a6ef9ece6234a696fda/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+42-->[androidx.core:core:1.13.1] /root/.gradle/caches/8.14.4/transforms/833f513205531a6ef9ece6234a696fda/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+43    <uses-permission android:name="moe.shizuku.manager.permission.API_V23" />
+43-->[dev.rikka.shizuku:provider:13.1.5] /root/.gradle/caches/8.14.4/transforms/2a3cfae135ce6127c0f1a361daf5bc08/transformed/provider-13.1.5/AndroidManifest.xml:8:5-78
+43-->[dev.rikka.shizuku:provider:13.1.5] /root/.gradle/caches/8.14.4/transforms/2a3cfae135ce6127c0f1a361daf5bc08/transformed/provider-13.1.5/AndroidManifest.xml:8:22-75
+44
+45    <application
+45-->/workspace/FileManager/app/src/main/AndroidManifest.xml:28:5-97:19
+46        android:allowBackup="true"
+46-->/workspace/FileManager/app/src/main/AndroidManifest.xml:29:9-35
+47        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+47-->[androidx.core:core:1.13.1] /root/.gradle/caches/8.14.4/transforms/833f513205531a6ef9ece6234a696fda/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+48        android:debuggable="true"
+49        android:extractNativeLibs="false"
+50        android:icon="@mipmap/ic_launcher"
+50-->/workspace/FileManager/app/src/main/AndroidManifest.xml:30:9-43
+51        android:label="@string/app_name"
+51-->/workspace/FileManager/app/src/main/AndroidManifest.xml:31:9-41
+52        android:requestLegacyExternalStorage="true"
+52-->/workspace/FileManager/app/src/main/AndroidManifest.xml:33:9-52
+53        android:roundIcon="@mipmap/ic_launcher_round"
+53-->/workspace/FileManager/app/src/main/AndroidManifest.xml:32:9-54
+54        android:supportsRtl="true"
+54-->/workspace/FileManager/app/src/main/AndroidManifest.xml:34:9-35
+55        android:theme="@style/Theme.FileManager" >
+55-->/workspace/FileManager/app/src/main/AndroidManifest.xml:35:9-49
+56        <activity
+56-->/workspace/FileManager/app/src/main/AndroidManifest.xml:38:9-45:20
+57            android:name="com.example.filemanager.MainActivity"
+57-->/workspace/FileManager/app/src/main/AndroidManifest.xml:39:13-41
+58            android:exported="true" >
+58-->/workspace/FileManager/app/src/main/AndroidManifest.xml:40:13-36
+59            <intent-filter>
+59-->/workspace/FileManager/app/src/main/AndroidManifest.xml:41:13-44:29
+60                <action android:name="android.intent.action.MAIN" />
+60-->/workspace/FileManager/app/src/main/AndroidManifest.xml:23:13-65
+60-->/workspace/FileManager/app/src/main/AndroidManifest.xml:23:21-62
+61
+62                <category android:name="android.intent.category.LAUNCHER" />
+62-->/workspace/FileManager/app/src/main/AndroidManifest.xml:24:13-73
+62-->/workspace/FileManager/app/src/main/AndroidManifest.xml:24:23-70
+63            </intent-filter>
+64        </activity>
+65        <activity
+65-->/workspace/FileManager/app/src/main/AndroidManifest.xml:47:9-50:56
+66            android:name="com.example.filemanager.TextViewerActivity"
+66-->/workspace/FileManager/app/src/main/AndroidManifest.xml:48:13-47
+67            android:exported="false"
+67-->/workspace/FileManager/app/src/main/AndroidManifest.xml:49:13-37
+68            android:theme="@style/Theme.FileManager" />
+68-->/workspace/FileManager/app/src/main/AndroidManifest.xml:50:13-53
+69        <activity
+69-->/workspace/FileManager/app/src/main/AndroidManifest.xml:52:9-55:56
+70            android:name="com.example.filemanager.ApkToolsActivity"
+70-->/workspace/FileManager/app/src/main/AndroidManifest.xml:53:13-45
+71            android:exported="false"
+71-->/workspace/FileManager/app/src/main/AndroidManifest.xml:54:13-37
+72            android:theme="@style/Theme.FileManager" />
+72-->/workspace/FileManager/app/src/main/AndroidManifest.xml:55:13-53
+73        <activity
+73-->/workspace/FileManager/app/src/main/AndroidManifest.xml:57:9-60:56
+74            android:name="com.example.filemanager.ImageViewerActivity"
+74-->/workspace/FileManager/app/src/main/AndroidManifest.xml:58:13-48
+75            android:exported="false"
+75-->/workspace/FileManager/app/src/main/AndroidManifest.xml:59:13-37
+76            android:theme="@style/Theme.FileManager" />
+76-->/workspace/FileManager/app/src/main/AndroidManifest.xml:60:13-53
+77        <activity
+77-->/workspace/FileManager/app/src/main/AndroidManifest.xml:62:9-66:62
+78            android:name="com.example.filemanager.MusicPlayerActivity"
+78-->/workspace/FileManager/app/src/main/AndroidManifest.xml:63:13-48
+79            android:configChanges="orientation|screenSize"
+79-->/workspace/FileManager/app/src/main/AndroidManifest.xml:66:13-59
+80            android:exported="false"
+80-->/workspace/FileManager/app/src/main/AndroidManifest.xml:64:13-37
+81            android:theme="@style/Theme.FileManager" />
+81-->/workspace/FileManager/app/src/main/AndroidManifest.xml:65:13-53
+82        <activity
+82-->/workspace/FileManager/app/src/main/AndroidManifest.xml:68:9-71:56
+83            android:name="com.example.filemanager.SettingsActivity"
+83-->/workspace/FileManager/app/src/main/AndroidManifest.xml:69:13-45
+84            android:exported="false"
+84-->/workspace/FileManager/app/src/main/AndroidManifest.xml:70:13-37
+85            android:theme="@style/Theme.FileManager" />
+85-->/workspace/FileManager/app/src/main/AndroidManifest.xml:71:13-53
+86        <activity
+86-->/workspace/FileManager/app/src/main/AndroidManifest.xml:73:9-77:58
+87            android:name="com.example.filemanager.TerminalActivity"
+87-->/workspace/FileManager/app/src/main/AndroidManifest.xml:74:13-45
+88            android:exported="false"
+88-->/workspace/FileManager/app/src/main/AndroidManifest.xml:75:13-37
+89            android:theme="@style/Theme.FileManager"
+89-->/workspace/FileManager/app/src/main/AndroidManifest.xml:76:13-53
+90            android:windowSoftInputMode="adjustResize" />
+90-->/workspace/FileManager/app/src/main/AndroidManifest.xml:77:13-55
+91
+92        <provider
+93            android:name="androidx.core.content.FileProvider"
+93-->/workspace/FileManager/app/src/main/AndroidManifest.xml:80:13-62
+94            android:authorities="com.example.filemanager.fileprovider"
+94-->/workspace/FileManager/app/src/main/AndroidManifest.xml:81:13-64
+95            android:exported="false"
+95-->/workspace/FileManager/app/src/main/AndroidManifest.xml:82:13-37
+96            android:grantUriPermissions="true" >
+96-->/workspace/FileManager/app/src/main/AndroidManifest.xml:83:13-47
+97            <meta-data
+97-->/workspace/FileManager/app/src/main/AndroidManifest.xml:84:13-86:54
+98                android:name="android.support.FILE_PROVIDER_PATHS"
+98-->/workspace/FileManager/app/src/main/AndroidManifest.xml:85:17-67
+99                android:resource="@xml/file_paths" />
+99-->/workspace/FileManager/app/src/main/AndroidManifest.xml:86:17-51
+100        </provider>
+101
+102        <!-- Shizuku Provider - 必须配置才能调用Shizuku API -->
+103        <provider
+104            android:name="rikka.shizuku.ShizukuProvider"
+104-->/workspace/FileManager/app/src/main/AndroidManifest.xml:91:13-57
+105            android:authorities="com.example.filemanager.shizuku"
+105-->/workspace/FileManager/app/src/main/AndroidManifest.xml:92:13-59
+106            android:enabled="true"
+106-->/workspace/FileManager/app/src/main/AndroidManifest.xml:94:13-35
+107            android:exported="true"
+107-->/workspace/FileManager/app/src/main/AndroidManifest.xml:95:13-36
+108            android:multiprocess="false"
+108-->/workspace/FileManager/app/src/main/AndroidManifest.xml:93:13-41
+109            android:permission="android.permission.INTERACT_ACROSS_USERS_FULL" />
+109-->/workspace/FileManager/app/src/main/AndroidManifest.xml:96:13-79
+110        <provider
+110-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/8.14.4/transforms/e290d2fb9fc8ba0fcb65fcc0548e8b1d/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+111            android:name="androidx.startup.InitializationProvider"
+111-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/8.14.4/transforms/e290d2fb9fc8ba0fcb65fcc0548e8b1d/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+112            android:authorities="com.example.filemanager.androidx-startup"
+112-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/8.14.4/transforms/e290d2fb9fc8ba0fcb65fcc0548e8b1d/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+113            android:exported="false" >
+113-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/8.14.4/transforms/e290d2fb9fc8ba0fcb65fcc0548e8b1d/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+114            <meta-data
+114-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/8.14.4/transforms/e290d2fb9fc8ba0fcb65fcc0548e8b1d/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+115                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+115-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/8.14.4/transforms/e290d2fb9fc8ba0fcb65fcc0548e8b1d/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+116                android:value="androidx.startup" />
+116-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/8.14.4/transforms/e290d2fb9fc8ba0fcb65fcc0548e8b1d/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+117            <meta-data
+117-->[androidx.lifecycle:lifecycle-process:2.6.2] /root/.gradle/caches/8.14.4/transforms/8e9b03db952b4cc099936e27da4d7d8a/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:29:13-31:52
+118                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+118-->[androidx.lifecycle:lifecycle-process:2.6.2] /root/.gradle/caches/8.14.4/transforms/8e9b03db952b4cc099936e27da4d7d8a/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:30:17-78
+119                android:value="androidx.startup" />
+119-->[androidx.lifecycle:lifecycle-process:2.6.2] /root/.gradle/caches/8.14.4/transforms/8e9b03db952b4cc099936e27da4d7d8a/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:31:17-49
+120            <meta-data
+120-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+121                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+121-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+122                android:value="androidx.startup" />
+122-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+123        </provider>
+124
+125        <meta-data
+125-->[dev.rikka.shizuku:provider:13.1.5] /root/.gradle/caches/8.14.4/transforms/2a3cfae135ce6127c0f1a361daf5bc08/transformed/provider-13.1.5/AndroidManifest.xml:11:9-13:36
+126            android:name="moe.shizuku.client.V3_SUPPORT"
+126-->[dev.rikka.shizuku:provider:13.1.5] /root/.gradle/caches/8.14.4/transforms/2a3cfae135ce6127c0f1a361daf5bc08/transformed/provider-13.1.5/AndroidManifest.xml:12:13-57
+127            android:value="true" />
+127-->[dev.rikka.shizuku:provider:13.1.5] /root/.gradle/caches/8.14.4/transforms/2a3cfae135ce6127c0f1a361daf5bc08/transformed/provider-13.1.5/AndroidManifest.xml:13:13-33
+128
+129        <receiver
+129-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+130            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+130-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+131            android:directBootAware="false"
+131-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+132            android:enabled="true"
+132-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+133            android:exported="true"
+133-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+134            android:permission="android.permission.DUMP" >
+134-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+135            <intent-filter>
+135-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+136                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+136-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+136-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+137            </intent-filter>
+138            <intent-filter>
+138-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+139                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+139-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+139-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+140            </intent-filter>
+141            <intent-filter>
+141-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+142                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+142-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+142-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+143            </intent-filter>
+144            <intent-filter>
+144-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+145                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+145-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+145-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+146            </intent-filter>
+147        </receiver>
+148    </application>
+149
+150</manifest>

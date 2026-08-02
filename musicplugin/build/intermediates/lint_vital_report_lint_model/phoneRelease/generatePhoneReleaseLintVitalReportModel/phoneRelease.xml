@@ -1,0 +1,33 @@
+<variant
+    name="phoneRelease"
+    package="com.example.musicplugin"
+    minSdkVersion="29"
+    targetSdkVersion="34"
+    shrinking="true"
+    mergedManifest="build/intermediates/merged_manifest/phoneRelease/processPhoneReleaseMainManifest/AndroidManifest.xml"
+    manifestMergeReport="build/outputs/logs/manifest-merger-phone-release-report.txt"
+    proguardFiles="build/intermediates/default_proguard_files/global/proguard-android-optimize.txt-8.5.2:proguard-rules.pro"
+    partialResultsDir="build/intermediates/lint_vital_partial_results/phoneRelease/lintVitalAnalyzePhoneRelease/out">
+  <buildFeatures
+      viewBinding="true"
+      namespacing="REQUIRED"/>
+  <sourceProviders>
+    <sourceProvider
+        manifests="src/main/AndroidManifest.xml"
+        javaDirectories="src/main/java:src/phone/java:src/release/java:src/phoneRelease/java:src/main/kotlin:src/phone/kotlin:src/release/kotlin:src/phoneRelease/kotlin"
+        resDirectories="src/main/res:src/phone/res:src/release/res:src/phoneRelease/res"
+        assetsDirectories="src/main/assets:src/phone/assets:src/release/assets:src/phoneRelease/assets"/>
+  </sourceProviders>
+  <testSourceProviders>
+  </testSourceProviders>
+  <testFixturesSourceProviders>
+  </testFixturesSourceProviders>
+  <artifact
+      classOutputs="build/intermediates/javac/phoneRelease/compilePhoneReleaseJavaWithJavac/classes:build/tmp/kotlin-classes/phoneRelease:build/kotlinToolingMetadata:build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/phoneRelease/processPhoneReleaseResources/R.jar"
+      type="MAIN"
+      applicationId="com.example.musicplugin"
+      generatedSourceFolders="build/generated/ap_generated_sources/phoneRelease/out:build/generated/data_binding_base_class_source_out/phoneRelease/out"
+      generatedResourceFolders="build/generated/res/resValues/phone/release"
+      desugaredMethodsFiles="/root/.gradle/caches/8.14.4/transforms/a1da8128c8454fcff74ce829486f7f51/transformed/D8BackportedDesugaredMethods.txt">
+  </artifact>
+</variant>

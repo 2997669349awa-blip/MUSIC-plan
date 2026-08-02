@@ -1,0 +1,183 @@
+-keep class androidx.core.app.CoreComponentFactory { <init>(); }
+-keep class androidx.profileinstaller.ProfileInstallReceiver { <init>(); }
+-keep class androidx.startup.InitializationProvider { <init>(); }
+-keep class com.example.musicplugin.HtmlIntroActivity { <init>(); }
+-keep class com.example.musicplugin.LoginWebActivity { <init>(); }
+-keep class com.example.musicplugin.MainActivity { <init>(); }
+-keep class com.example.musicplugin.MusicService { <init>(); }
+-keep class com.example.musicplugin.PvSearchActivity { <init>(); }
+-keep class com.example.musicplugin.RecognizeActivity { <init>(); }
+-keep class com.example.musicplugin.RecognizeFloatingService { <init>(); }
+-keep class com.example.musicplugin.SettingsActivity { <init>(); }
+-keep class android.widget.Space { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.app.AlertController$RecycleListView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.view.menu.ActionMenuItemView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.view.menu.ExpandedMenuView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.view.menu.ListMenuItemView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.ActionBarContainer { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.ActionBarContextView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.ActionBarOverlayLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.ActionMenuView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.ActivityChooserView$InnerLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.AlertDialogLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.ButtonBarLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.ContentFrameLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.DialogTitle { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.FitWindowsFrameLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.FitWindowsLinearLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.SearchView$SearchAutoComplete { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.Toolbar { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.ViewStubCompat { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.constraintlayout.helper.widget.Flow { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.constraintlayout.widget.ConstraintLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.coordinatorlayout.widget.CoordinatorLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.core.widget.NestedScrollView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.fragment.app.FragmentContainerView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.app.GuidedStepRootLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.transition.FadeAndShortSlide { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.transition.ParallaxTransition { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.transition.SlideKitkat { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.transition.SlideNoPropagation { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.BrowseFrameLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.BrowseRowsFrameLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.CheckableImageView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.ControlBar { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.GuidanceStylingRelativeLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.GuidedActionEditText { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.GuidedActionItemContainer { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.GuidedActionsRelativeLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.HorizontalGridView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.MediaNowPlayingView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.MediaRowFocusView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.NonOverlappingFrameLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.NonOverlappingLinearLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.NonOverlappingRelativeLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.NonOverlappingView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.PagingIndicator { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.PlaybackControlsRowView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.PlaybackTransportRowView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.ResizingTextView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.RowHeaderView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.ScaleFrameLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.SearchBar { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.SearchEditText { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.SearchOrbView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.SeekBar { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.SpeechOrbView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.ThumbsBar { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.TitleView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.VerticalGridView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.VideoSurfaceView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.leanback.widget.picker.DatePicker { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.mediarouter.app.MediaRouteExpandCollapseButton { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.mediarouter.app.MediaRouteVolumeSlider { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.mediarouter.app.OverlayListView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.recyclerview.widget.RecyclerView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.appbar.MaterialToolbar { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.button.MaterialButton { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.button.MaterialButtonToggleGroup { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.chip.Chip { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.chip.ChipGroup { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.datepicker.MaterialCalendarGridView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.internal.BaselineLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.internal.CheckableImageButton { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.internal.ClippableRoundedCornerLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.internal.NavigationMenuItemView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.internal.NavigationMenuView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.internal.TouchObserverFrameLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.snackbar.Snackbar$SnackbarLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.snackbar.SnackbarContentLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.tabs.TabItem { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.tabs.TabLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.textfield.TextInputEditText { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.textfield.TextInputLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.timepicker.ChipTextInputComboView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.timepicker.ClockFaceView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.timepicker.ClockHandView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.timepicker.TimePickerView { <init>(android.content.Context, android.util.AttributeSet); }
+

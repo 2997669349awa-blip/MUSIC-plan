@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.musicplugin-mergeDebugResources-32:/layout/item_song.xml",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.musicplugin-main-35:/layout/item_song.xml"
+    },
+    {
+        "merged": "com.example.musicplugin-mergeDebugResources-32:/layout/item_song.xml",
+        "source": "com.example.musicplugin-main-35:/layout/item_song.xml"
+    },
+    {
+        "merged": "com.example.musicplugin-mergeDebugResources-32:/layout/activity_main.xml",
+        "source": "com.example.musicplugin-main-35:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.musicplugin-mergeDebugResources-32:/layout/activity_main.xml",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.musicplugin-main-35:/layout/activity_main.xml"
+    }
+]

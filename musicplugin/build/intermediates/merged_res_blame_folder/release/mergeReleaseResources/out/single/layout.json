@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.example.musicplugin-mergeReleaseResources-32:/layout/item_song.xml",
+        "source": "com.example.musicplugin-main-34:/layout/item_song.xml"
+    },
+    {
+        "merged": "com.example.musicplugin-mergeReleaseResources-32:/layout/activity_main.xml",
+        "source": "com.example.musicplugin-main-34:/layout/activity_main.xml"
+    }
+]

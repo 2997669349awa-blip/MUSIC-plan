@@ -1,0 +1,19 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- v1.6.6：重新设计为标准文件夹图标 -->
+    <!-- 文件夹标签（左上角凸起部分）+ 主体（圆角） -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M34,40 L50,40 L54,44 L74,44 C76.2,44 78,45.8 78,48 L78,70 C78,72.2 76.2,74 74,74 L34,74 C31.8,74 30,72.2 30,70 L30,44 C30,41.8 31.8,40 34,40 Z" />
+
+    <!-- 文件夹内容线条（半透明紫色，表示文件夹里有文件） -->
+    <path
+        android:fillColor="#6750A4"
+        android:fillAlpha="0.55"
+        android:pathData="M38,54 L70,54 L70,57 L38,57 Z M38,61 L70,61 L70,64 L38,64 Z" />
+
+</vector>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- 终端按钮：常驻工具栏，显示在标题旁 -->
+    <item
+        android:id="@+id/action_terminal"
+        android:title="@string/terminal"
+        android:icon="@drawable/ic_terminal"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_sort"
+        android:title="@string/sort"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_view_mode"
+        android:title="@string/toggle_view"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_new_folder"
+        android:title="@string/new_folder"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_new_file"
+        android:title="@string/new_file"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_paste"
+        android:title="@string/paste"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_compress"
+        android:title="@string/compress_selected"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_extract"
+        android:title="@string/extract_archive"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_adb"
+        android:title="@string/adb_permission"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_select_all"
+        android:title="@string/select_all"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_hidden"
+        android:title="@string/show_hidden"
+        android:checkable="true"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/settings"
+        app:showAsAction="never" />
+
+</menu>

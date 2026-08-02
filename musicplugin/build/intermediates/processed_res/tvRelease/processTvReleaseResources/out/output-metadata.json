@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "PROCESSED_RES",
+    "kind": "Directory"
+  },
+  "applicationId": "com.example.musicplugin.tv",
+  "variantName": "tvRelease",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 34,
+      "versionName": "1.2.7-tv",
+      "outputFile": "resources-tvRelease.ap_"
+    }
+  ],
+  "elementType": "File"
+}

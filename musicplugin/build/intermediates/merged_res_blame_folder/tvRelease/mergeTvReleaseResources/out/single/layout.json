@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.musicplugin-mergeTvReleaseResources-34:/layout/activity_main.xml",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.musicplugin-main-37:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.musicplugin-mergeTvReleaseResources-34:/layout/dialog_announcement.xml",
+        "source": "com.example.musicplugin-main-37:/layout/dialog_announcement.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.musicplugin-mergeTvReleaseResources-34:/layout/item_song.xml",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.musicplugin-main-37:/layout/item_song.xml"
+    }
+]

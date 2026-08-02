@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "com.example.musicplugin-release-33:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.example.musicplugin-main-34:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.musicplugin-release-33:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.musicplugin-main-34:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.musicplugin-release-33:/drawable_ic_music_plugin_foreground.xml.flat",
+        "source": "com.example.musicplugin-main-34:/drawable/ic_music_plugin_foreground.xml"
+    },
+    {
+        "merged": "com.example.musicplugin-release-33:/layout_activity_main.xml.flat",
+        "source": "com.example.musicplugin-main-34:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.musicplugin-release-33:/layout_item_song.xml.flat",
+        "source": "com.example.musicplugin-main-34:/layout/item_song.xml"
+    },
+    {
+        "merged": "com.example.musicplugin-release-33:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.musicplugin-main-34:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.musicplugin-release-33:/drawable_ic_music_plugin_bg.xml.flat",
+        "source": "com.example.musicplugin-main-34:/drawable/ic_music_plugin_bg.xml"
+    }
+]

@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "com.example.filemanager.app-mergeReleaseResources-35:/layout/activity_settings.xml",
+        "source": "com.example.filemanager.app-main-37:/layout/activity_settings.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-mergeReleaseResources-35:/layout/activity_main.xml",
+        "source": "com.example.filemanager.app-main-37:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-mergeReleaseResources-35:/layout/activity_music_player.xml",
+        "source": "com.example.filemanager.app-main-37:/layout/activity_music_player.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-mergeReleaseResources-35:/layout/item_file.xml",
+        "source": "com.example.filemanager.app-main-37:/layout/item_file.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-mergeReleaseResources-35:/layout/activity_terminal.xml",
+        "source": "com.example.filemanager.app-main-37:/layout/activity_terminal.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-mergeReleaseResources-35:/layout/item_file_grid.xml",
+        "source": "com.example.filemanager.app-main-37:/layout/item_file_grid.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-mergeReleaseResources-35:/layout/activity_text_viewer.xml",
+        "source": "com.example.filemanager.app-main-37:/layout/activity_text_viewer.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-mergeReleaseResources-35:/layout/activity_image_viewer.xml",
+        "source": "com.example.filemanager.app-main-37:/layout/activity_image_viewer.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-mergeReleaseResources-35:/layout/activity_apk_tools.xml",
+        "source": "com.example.filemanager.app-main-37:/layout/activity_apk_tools.xml"
+    }
+]

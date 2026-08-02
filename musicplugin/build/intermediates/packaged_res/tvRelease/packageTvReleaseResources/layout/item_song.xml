@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    v1.2.7：歌曲列表项升级
+    - 圆角卡片背景
+    - 播放中绿色微光背景（通过代码切换 bg_song_card / bg_song_card_playing）
+    - 圆角封面占位
+    - 紧凑信息层级
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="68dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@drawable/bg_song_card"
+    android:focusable="true"
+    android:clickable="true"
+    android:padding="10dp"
+    android:layout_marginStart="12dp"
+    android:layout_marginEnd="12dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp">
+
+    <!-- 专辑封面占位（圆角） -->
+    <FrameLayout
+        android:layout_width="48dp"
+        android:layout_height="48dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_album_placeholder"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/imgPlaceholder"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@android:drawable/ic_media_play"
+                android:tint="#FF1ED760"
+                android:contentDescription="@string/play" />
+        </LinearLayout>
+        <!-- 播放中波纹指示器（默认隐藏，代码控制） -->
+        <ImageView
+            android:id="@+id/imgPlaying"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@android:drawable/ic_media_pause"
+            android:tint="#FF1ED760"
+            android:background="#CC080808"
+            android:padding="10dp"
+            android:visibility="gone"
+            android:contentDescription="@string/play" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="12dp">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFFFF"
+            android:textSize="15sp"
+            android:singleLine="true"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/tvArtist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FF8A8A8A"
+            android:textSize="12sp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvDuration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF666666"
+        android:textSize="12sp"
+        android:fontFamily="monospace" />
+
+    <ImageButton
+        android:id="@+id/btnFavorite"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="6dp"
+        android:background="@drawable/tv_button_bg"
+        android:src="@drawable/ic_star_outline"
+        android:focusable="true"
+        android:clickable="true"
+        android:contentDescription="@string/favorite" />
+
+</LinearLayout>
