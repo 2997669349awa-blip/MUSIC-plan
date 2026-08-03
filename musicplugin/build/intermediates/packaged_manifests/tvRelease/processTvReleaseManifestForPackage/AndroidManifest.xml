@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.musicplugin.tv"
-    android:versionCode="34"
-    android:versionName="1.2.7-tv" >
+    android:versionCode="35"
+    android:versionName="1.2.8-tv" >
 
     <uses-sdk
         android:minSdkVersion="29"
@@ -36,6 +36,7 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
 
     <permission
         android:name="com.example.musicplugin.tv.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
@@ -109,6 +110,14 @@
             <intent-filter>
                 <action android:name="android.intent.action.MEDIA_BUTTON" />
             </intent-filter>
+        </service> <!-- v1.2.8：桌面歌词悬浮服务 -->
+        <service
+            android:name="com.example.musicplugin.DesktopLyricService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse" >
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="desktop_lyric" />
         </service>
 
         <provider

@@ -4,7 +4,7 @@
             "outputFile": "com.example.musicplugin-mergePhoneReleaseResources-32:/values-ldrtl-v17/values-ldrtl-v17.xml",
             "map": [
                 {
-                    "source": "/root/.gradle/caches/8.14.4/transforms/f5eefe7dfac99d4e290b1aa6a1374f3e/transformed/material-1.12.0/res/values-ldrtl-v17/values-ldrtl-v17.xml",
+                    "source": "/root/.gradle/caches/transforms-4/30dbe09adc47a6fa3161e128d9fbb6b2/transformed/material-1.12.0/res/values-ldrtl-v17/values-ldrtl-v17.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

@@ -91,7 +91,7 @@
 
 # End of content from /workspace/FileManager/musicplugin/build/intermediates/default_proguard_files/global/proguard-android-optimize.txt-8.5.2
 # The proguard configuration file for the following section is /workspace/FileManager/musicplugin/proguard-rules.pro
-# 绿符音乐 v1.2.2 加固规则
+# MUSIC plan v1.2.2 加固规则
 
 # 保留 Kotlin 元数据（反射用）
 -keepattributes *Annotation*, Signature, InnerClasses, EnclosingMethod
@@ -145,7 +145,7 @@
 }
 
 # End of content from /workspace/FileManager/musicplugin/proguard-rules.pro
-# The proguard configuration file for the following section is /root/.gradle/caches/8.14.4/transforms/f5eefe7dfac99d4e290b1aa6a1374f3e/transformed/material-1.12.0/proguard.txt
+# The proguard configuration file for the following section is /root/.gradle/caches/transforms-4/30dbe09adc47a6fa3161e128d9fbb6b2/transformed/material-1.12.0/proguard.txt
 # Copyright (C) 2015 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -193,8 +193,8 @@
 }
 
 
-# End of content from /root/.gradle/caches/8.14.4/transforms/f5eefe7dfac99d4e290b1aa6a1374f3e/transformed/material-1.12.0/proguard.txt
-# The proguard configuration file for the following section is /root/.gradle/caches/8.14.4/transforms/c25f1e8ce50fe9f77ce70353294630e9/transformed/mediarouter-1.7.0/proguard.txt
+# End of content from /root/.gradle/caches/transforms-4/30dbe09adc47a6fa3161e128d9fbb6b2/transformed/material-1.12.0/proguard.txt
+# The proguard configuration file for the following section is /root/.gradle/caches/transforms-4/419812531edc1e3f3ec0cc39d606cb5e/transformed/mediarouter-1.7.0/proguard.txt
 # Copyright 2019 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -214,8 +214,8 @@
   static boolean DEBUG return false;
 }
 
-# End of content from /root/.gradle/caches/8.14.4/transforms/c25f1e8ce50fe9f77ce70353294630e9/transformed/mediarouter-1.7.0/proguard.txt
-# The proguard configuration file for the following section is /root/.gradle/caches/8.14.4/transforms/ab58475def9fdeda0718ec1a5f3e135b/transformed/appcompat-1.7.0/proguard.txt
+# End of content from /root/.gradle/caches/transforms-4/419812531edc1e3f3ec0cc39d606cb5e/transformed/mediarouter-1.7.0/proguard.txt
+# The proguard configuration file for the following section is /root/.gradle/caches/transforms-4/36b3856ba9c7cbbdc36c1fd5fe2a4d44/transformed/appcompat-1.7.0/proguard.txt
 # Copyright (C) 2018 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -235,8 +235,8 @@
   <methods>;
 }
 
-# End of content from /root/.gradle/caches/8.14.4/transforms/ab58475def9fdeda0718ec1a5f3e135b/transformed/appcompat-1.7.0/proguard.txt
-# The proguard configuration file for the following section is /root/.gradle/caches/8.14.4/transforms/810cd6495c81196d6e8b04143ef66f49/transformed/recyclerview-1.3.2/proguard.txt
+# End of content from /root/.gradle/caches/transforms-4/36b3856ba9c7cbbdc36c1fd5fe2a4d44/transformed/appcompat-1.7.0/proguard.txt
+# The proguard configuration file for the following section is /root/.gradle/caches/transforms-4/71ce8e770ba3f8c0ed42099b307d28d4/transformed/recyclerview-1.3.2/proguard.txt
 # Copyright (C) 2015 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -262,8 +262,8 @@
     public void suppressLayout(boolean);
     public boolean isLayoutSuppressed();
 }
-# End of content from /root/.gradle/caches/8.14.4/transforms/810cd6495c81196d6e8b04143ef66f49/transformed/recyclerview-1.3.2/proguard.txt
-# The proguard configuration file for the following section is /root/.gradle/caches/8.14.4/transforms/85ad97082f9a627661fcbb830a927669/transformed/media-1.7.0/proguard.txt
+# End of content from /root/.gradle/caches/transforms-4/71ce8e770ba3f8c0ed42099b307d28d4/transformed/recyclerview-1.3.2/proguard.txt
+# The proguard configuration file for the following section is /root/.gradle/caches/transforms-4/af4a4501f4720d1eb4a0cb4841bced2d/transformed/media-1.7.0/proguard.txt
 # Copyright (C) 2017 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -287,8 +287,8 @@
 -keep class androidx.media.** implements android.os.Parcelable {
     public static final android.os.Parcelable$Creator *;
 }
-# End of content from /root/.gradle/caches/8.14.4/transforms/85ad97082f9a627661fcbb830a927669/transformed/media-1.7.0/proguard.txt
-# The proguard configuration file for the following section is /root/.gradle/caches/8.14.4/transforms/0725d4fcb4c4c693fe5802a6950228c5/transformed/fragment-1.5.4/proguard.txt
+# End of content from /root/.gradle/caches/transforms-4/af4a4501f4720d1eb4a0cb4841bced2d/transformed/media-1.7.0/proguard.txt
+# The proguard configuration file for the following section is /root/.gradle/caches/transforms-4/3d9efbf281507841f2c86d9fd1c4139f/transformed/fragment-1.5.4/proguard.txt
 # Copyright (C) 2020 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -309,8 +309,8 @@
     public <init>();
 }
 
-# End of content from /root/.gradle/caches/8.14.4/transforms/0725d4fcb4c4c693fe5802a6950228c5/transformed/fragment-1.5.4/proguard.txt
-# The proguard configuration file for the following section is /root/.gradle/caches/8.14.4/transforms/145f7dbf032456e881dcc099f437793c/transformed/coordinatorlayout-1.1.0/proguard.txt
+# End of content from /root/.gradle/caches/transforms-4/3d9efbf281507841f2c86d9fd1c4139f/transformed/fragment-1.5.4/proguard.txt
+# The proguard configuration file for the following section is /root/.gradle/caches/transforms-4/46c3eec3db88da37d66b1997214a1a7d/transformed/coordinatorlayout-1.1.0/proguard.txt
 # Copyright (C) 2016 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -334,8 +334,8 @@
 # Make sure we keep annotations for CoordinatorLayout's DefaultBehavior and ViewPager's DecorView
 -keepattributes *Annotation*
 
-# End of content from /root/.gradle/caches/8.14.4/transforms/145f7dbf032456e881dcc099f437793c/transformed/coordinatorlayout-1.1.0/proguard.txt
-# The proguard configuration file for the following section is /root/.gradle/caches/8.14.4/transforms/da1dbbd79950b5d24e4300211a6f13b6/transformed/transition-1.5.0/proguard.txt
+# End of content from /root/.gradle/caches/transforms-4/46c3eec3db88da37d66b1997214a1a7d/transformed/coordinatorlayout-1.1.0/proguard.txt
+# The proguard configuration file for the following section is /root/.gradle/caches/transforms-4/eb07a0b9af61cd6747df6be18d6086c6/transformed/transition-1.5.0/proguard.txt
 # Copyright (C) 2017 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -355,8 +355,8 @@
   androidx.transition.ChangeBounds$ViewBounds mViewBounds;
 }
 
-# End of content from /root/.gradle/caches/8.14.4/transforms/da1dbbd79950b5d24e4300211a6f13b6/transformed/transition-1.5.0/proguard.txt
-# The proguard configuration file for the following section is /root/.gradle/caches/8.14.4/transforms/d51b70027a159adae6fa9f626a94ca70/transformed/vectordrawable-animated-1.1.0/proguard.txt
+# End of content from /root/.gradle/caches/transforms-4/eb07a0b9af61cd6747df6be18d6086c6/transformed/transition-1.5.0/proguard.txt
+# The proguard configuration file for the following section is /root/.gradle/caches/transforms-4/66e87927202b5219b442b09f9c258f07/transformed/vectordrawable-animated-1.1.0/proguard.txt
 # Copyright (C) 2016 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -377,8 +377,8 @@
    *** get*();
 }
 
-# End of content from /root/.gradle/caches/8.14.4/transforms/d51b70027a159adae6fa9f626a94ca70/transformed/vectordrawable-animated-1.1.0/proguard.txt
-# The proguard configuration file for the following section is /root/.gradle/caches/8.14.4/transforms/833f513205531a6ef9ece6234a696fda/transformed/core-1.13.1/proguard.txt
+# End of content from /root/.gradle/caches/transforms-4/66e87927202b5219b442b09f9c258f07/transformed/vectordrawable-animated-1.1.0/proguard.txt
+# The proguard configuration file for the following section is /root/.gradle/caches/transforms-4/8e0a0bff2d388b6446750efdf4a5758f/transformed/core-1.13.1/proguard.txt
 # Never inline methods, but allow shrinking and obfuscation.
 -keepclassmembernames,allowobfuscation,allowshrinking class androidx.core.view.ViewCompat$Api* {
   <methods>;
@@ -396,8 +396,8 @@
   <methods>;
 }
 
-# End of content from /root/.gradle/caches/8.14.4/transforms/833f513205531a6ef9ece6234a696fda/transformed/core-1.13.1/proguard.txt
-# The proguard configuration file for the following section is /root/.gradle/caches/8.14.4/transforms/3a1e32cb14c1b918653e5f5a9f4f6265/transformed/savedstate-1.2.1/proguard.txt
+# End of content from /root/.gradle/caches/transforms-4/8e0a0bff2d388b6446750efdf4a5758f/transformed/core-1.13.1/proguard.txt
+# The proguard configuration file for the following section is /root/.gradle/caches/transforms-4/4bd627a9048f6ce18b1b2d88bd05a714/transformed/savedstate-1.2.1/proguard.txt
 # Copyright (C) 2019 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -416,8 +416,8 @@
     <init>();
 }
 
-# End of content from /root/.gradle/caches/8.14.4/transforms/3a1e32cb14c1b918653e5f5a9f4f6265/transformed/savedstate-1.2.1/proguard.txt
-# The proguard configuration file for the following section is /root/.gradle/caches/8.14.4/transforms/ed6bfe5305caabe8897421f7eb128609/transformed/lifecycle-viewmodel-2.6.2/proguard.txt
+# End of content from /root/.gradle/caches/transforms-4/4bd627a9048f6ce18b1b2d88bd05a714/transformed/savedstate-1.2.1/proguard.txt
+# The proguard configuration file for the following section is /root/.gradle/caches/transforms-4/475157b7fb9afaa8cbd268d644c85bc1/transformed/lifecycle-viewmodel-2.6.2/proguard.txt
 -keepclassmembers,allowobfuscation class * extends androidx.lifecycle.ViewModel {
     <init>();
 }
@@ -426,12 +426,12 @@
     <init>(android.app.Application);
 }
 
-# End of content from /root/.gradle/caches/8.14.4/transforms/ed6bfe5305caabe8897421f7eb128609/transformed/lifecycle-viewmodel-2.6.2/proguard.txt
-# The proguard configuration file for the following section is /root/.gradle/caches/8.14.4/transforms/8e9b03db952b4cc099936e27da4d7d8a/transformed/lifecycle-process-2.6.2/proguard.txt
+# End of content from /root/.gradle/caches/transforms-4/475157b7fb9afaa8cbd268d644c85bc1/transformed/lifecycle-viewmodel-2.6.2/proguard.txt
+# The proguard configuration file for the following section is /root/.gradle/caches/transforms-4/44d9374c2fc79a1ce870385ec114cea5/transformed/lifecycle-process-2.6.2/proguard.txt
 # this rule is need to work properly when app is compiled with api 28, see b/142778206
 -keepclassmembers class * extends androidx.lifecycle.EmptyActivityLifecycleCallbacks { *; }
-# End of content from /root/.gradle/caches/8.14.4/transforms/8e9b03db952b4cc099936e27da4d7d8a/transformed/lifecycle-process-2.6.2/proguard.txt
-# The proguard configuration file for the following section is /root/.gradle/caches/8.14.4/transforms/8e04cc3c7ba0c4896b1d278a5a9b89de/transformed/lifecycle-runtime-2.6.2/proguard.txt
+# End of content from /root/.gradle/caches/transforms-4/44d9374c2fc79a1ce870385ec114cea5/transformed/lifecycle-process-2.6.2/proguard.txt
+# The proguard configuration file for the following section is /root/.gradle/caches/transforms-4/f0d9cfbdb784c10d6a0f1a5315cd19fe/transformed/lifecycle-runtime-2.6.2/proguard.txt
 -keepattributes AnnotationDefault,
                 RuntimeVisibleAnnotations,
                 RuntimeVisibleParameterAnnotations,
@@ -455,8 +455,8 @@
 # this rule is need to work properly when app is compiled with api 28, see b/142778206
 # Also this rule prevents registerIn from being inlined.
 -keepclassmembers class androidx.lifecycle.ReportFragment$LifecycleCallbacks { *; }
-# End of content from /root/.gradle/caches/8.14.4/transforms/8e04cc3c7ba0c4896b1d278a5a9b89de/transformed/lifecycle-runtime-2.6.2/proguard.txt
-# The proguard configuration file for the following section is /root/.gradle/caches/8.14.4/transforms/e57522658bc79e7c71dc81699c29cedd/transformed/lifecycle-viewmodel-savedstate-2.6.2/proguard.txt
+# End of content from /root/.gradle/caches/transforms-4/f0d9cfbdb784c10d6a0f1a5315cd19fe/transformed/lifecycle-runtime-2.6.2/proguard.txt
+# The proguard configuration file for the following section is /root/.gradle/caches/transforms-4/075303c1a579c423313bb64f570c90a9/transformed/lifecycle-viewmodel-savedstate-2.6.2/proguard.txt
 -keepclassmembers,allowobfuscation class * extends androidx.lifecycle.ViewModel {
     <init>(androidx.lifecycle.SavedStateHandle);
 }
@@ -465,15 +465,15 @@
     <init>(android.app.Application,androidx.lifecycle.SavedStateHandle);
 }
 
-# End of content from /root/.gradle/caches/8.14.4/transforms/e57522658bc79e7c71dc81699c29cedd/transformed/lifecycle-viewmodel-savedstate-2.6.2/proguard.txt
-# The proguard configuration file for the following section is /root/.gradle/caches/8.14.4/transforms/70cbb0fcba35cb4522759a3a132f1411/transformed/versionedparcelable-1.1.1/proguard.txt
+# End of content from /root/.gradle/caches/transforms-4/075303c1a579c423313bb64f570c90a9/transformed/lifecycle-viewmodel-savedstate-2.6.2/proguard.txt
+# The proguard configuration file for the following section is /root/.gradle/caches/transforms-4/e76f1b767bbdaf61093fe6fdbd88b122/transformed/versionedparcelable-1.1.1/proguard.txt
 -keep class * implements androidx.versionedparcelable.VersionedParcelable
 -keep public class android.support.**Parcelizer { *; }
 -keep public class androidx.**Parcelizer { *; }
 -keep public class androidx.versionedparcelable.ParcelImpl
 
-# End of content from /root/.gradle/caches/8.14.4/transforms/70cbb0fcba35cb4522759a3a132f1411/transformed/versionedparcelable-1.1.1/proguard.txt
-# The proguard configuration file for the following section is /root/.gradle/caches/8.14.4/transforms/2f27882a1f419bb2ae7027c777d1e59a/transformed/startup-runtime-1.1.1/proguard.txt
+# End of content from /root/.gradle/caches/transforms-4/e76f1b767bbdaf61093fe6fdbd88b122/transformed/versionedparcelable-1.1.1/proguard.txt
+# The proguard configuration file for the following section is /root/.gradle/caches/transforms-4/705c330e03d4e2fcb62a924d14782115/transformed/startup-runtime-1.1.1/proguard.txt
 # It's important that we preserve initializer names, given they are used in the AndroidManifest.xml.
 -keepnames class * extends androidx.startup.Initializer
 
@@ -487,8 +487,8 @@
 
 -assumenosideeffects class androidx.startup.StartupLogger { public static <methods>; }
 
-# End of content from /root/.gradle/caches/8.14.4/transforms/2f27882a1f419bb2ae7027c777d1e59a/transformed/startup-runtime-1.1.1/proguard.txt
-# The proguard configuration file for the following section is /root/.gradle/caches/8.14.4/transforms/0de0e9932032bfdf7a7b4e915f27513d/transformed/rules/lib/META-INF/proguard/androidx-annotations.pro
+# End of content from /root/.gradle/caches/transforms-4/705c330e03d4e2fcb62a924d14782115/transformed/startup-runtime-1.1.1/proguard.txt
+# The proguard configuration file for the following section is /root/.gradle/caches/transforms-4/a1fc4cb64ba3edea97e25e4c46750b67/transformed/rules/lib/META-INF/proguard/androidx-annotations.pro
 -keep,allowobfuscation @interface androidx.annotation.Keep
 -keep @androidx.annotation.Keep class * {*;}
 
@@ -508,8 +508,8 @@
   @androidx.annotation.DoNotInline <methods>;
 }
 
-# End of content from /root/.gradle/caches/8.14.4/transforms/0de0e9932032bfdf7a7b4e915f27513d/transformed/rules/lib/META-INF/proguard/androidx-annotations.pro
-# The proguard configuration file for the following section is /root/.gradle/caches/8.14.4/transforms/910827860f17961d74be3afb739c6072/transformed/rules/lib/META-INF/proguard/okhttp3.pro
+# End of content from /root/.gradle/caches/transforms-4/a1fc4cb64ba3edea97e25e4c46750b67/transformed/rules/lib/META-INF/proguard/androidx-annotations.pro
+# The proguard configuration file for the following section is /root/.gradle/caches/transforms-4/7292692a7f5bfff1421a2c4b20ccf03a/transformed/rules/lib/META-INF/proguard/okhttp3.pro
 # JSR 305 annotations are for embedding nullability information.
 -dontwarn javax.annotation.**
 
@@ -525,8 +525,8 @@
 -dontwarn org.bouncycastle.**
 -dontwarn org.openjsse.**
 
-# End of content from /root/.gradle/caches/8.14.4/transforms/910827860f17961d74be3afb739c6072/transformed/rules/lib/META-INF/proguard/okhttp3.pro
-# The proguard configuration file for the following section is /root/.gradle/caches/8.14.4/transforms/a4d99ae05768d6053f8fef3e612ab1ba/transformed/rules/lib/META-INF/com.android.tools/r8/coroutines.pro
+# End of content from /root/.gradle/caches/transforms-4/7292692a7f5bfff1421a2c4b20ccf03a/transformed/rules/lib/META-INF/proguard/okhttp3.pro
+# The proguard configuration file for the following section is /root/.gradle/caches/transforms-4/d1019d9d808ff3b1c1258bec026e1459/transformed/rules/lib/META-INF/com.android.tools/r8/coroutines.pro
 # When editing this file, update the following files as well:
 # - META-INF/proguard/coroutines.pro
 # - META-INF/com.android.tools/proguard/coroutines.pro
@@ -554,8 +554,8 @@
 
 # An annotation used for build tooling, won't be directly accessed.
 -dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
-# End of content from /root/.gradle/caches/8.14.4/transforms/a4d99ae05768d6053f8fef3e612ab1ba/transformed/rules/lib/META-INF/com.android.tools/r8/coroutines.pro
-# The proguard configuration file for the following section is /root/.gradle/caches/8.14.4/transforms/362f9612a38e2e8051b32bd0e5e55492/transformed/rules/lib/META-INF/com.android.tools/r8-from-1.6.0/coroutines.pro
+# End of content from /root/.gradle/caches/transforms-4/d1019d9d808ff3b1c1258bec026e1459/transformed/rules/lib/META-INF/com.android.tools/r8/coroutines.pro
+# The proguard configuration file for the following section is /root/.gradle/caches/transforms-4/1937f24a52101e2992625ba6d58b424f/transformed/rules/lib/META-INF/com.android.tools/r8-from-1.6.0/coroutines.pro
 # Allow R8 to optimize away the FastServiceLoader.
 # Together with ServiceLoader optimization in R8
 # this results in direct instantiation when loading Dispatchers.Main
@@ -579,11 +579,12 @@
     boolean getRECOVER_STACK_TRACES() return false;
 }
 
-# End of content from /root/.gradle/caches/8.14.4/transforms/362f9612a38e2e8051b32bd0e5e55492/transformed/rules/lib/META-INF/com.android.tools/r8-from-1.6.0/coroutines.pro
+# End of content from /root/.gradle/caches/transforms-4/1937f24a52101e2992625ba6d58b424f/transformed/rules/lib/META-INF/com.android.tools/r8-from-1.6.0/coroutines.pro
 # The proguard configuration file for the following section is /workspace/FileManager/musicplugin/build/intermediates/aapt_proguard_file/phoneRelease/processPhoneReleaseResources/aapt_rules.txt
 -keep class androidx.core.app.CoreComponentFactory { <init>(); }
 -keep class androidx.profileinstaller.ProfileInstallReceiver { <init>(); }
 -keep class androidx.startup.InitializationProvider { <init>(); }
+-keep class com.example.musicplugin.DesktopLyricService { <init>(); }
 -keep class com.example.musicplugin.HtmlIntroActivity { <init>(); }
 -keep class com.example.musicplugin.LoginWebActivity { <init>(); }
 -keep class com.example.musicplugin.MainActivity { <init>(); }

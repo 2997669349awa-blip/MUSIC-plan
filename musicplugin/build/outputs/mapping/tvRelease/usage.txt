@@ -10814,6 +10814,9 @@ com.example.musicplugin.AudioRecorder:
     private static final int CHANNEL
     private static final int FORMAT
     public static final int SAMPLE_RATE
+com.example.musicplugin.DesktopLyricService:
+    public static final java.lang.String CHANNEL_ID
+    public static final int NOTIFICATION_ID
 com.example.musicplugin.DlnaHelper:
     private static final java.lang.String SSDP_HOST
     private static final int SSDP_PORT
@@ -22366,7 +22369,6 @@ androidx.core.app.NotificationCompat$Builder:
     public static androidx.core.app.NotificationCompat$Builder setContentTitle()
     public static void setFlag()
     public static androidx.core.app.NotificationCompat$Builder setLargeIcon()
-    public final void setOngoing(boolean)
     public static androidx.core.app.NotificationCompat$Builder setSmallIcon()
 androidx.core.app.NotificationCompat$CallStyle
 androidx.core.app.NotificationCompat$Style$Api24Impl
@@ -25753,6 +25755,11 @@ com.example.musicplugin.BitmapLoader:
     public static final com.example.musicplugin.BitmapLoader INSTANCE
     public static final int cacheSize
     public static android.graphics.Bitmap download()
+com.example.musicplugin.DesktopLyricService:
+    public static android.app.Notification buildNotification()
+    public static void createChannel()
+    public static void createFloatingView()
+    public static void updateLyric()
 com.example.musicplugin.DlnaHelper:
     public static final com.example.musicplugin.DlnaHelper INSTANCE
     public static void cast()
@@ -25775,7 +25782,6 @@ com.example.musicplugin.LoginWebActivity:
     public static void checkCookie()
     public static java.lang.String extractCookieValue()
 com.example.musicplugin.LyricParser:
-    public static int getIndexAtTime()
     public static java.util.List parse()
 com.example.musicplugin.MusicApi:
     public static final com.example.musicplugin.MusicApi INSTANCE
@@ -25852,6 +25858,7 @@ com.example.musicplugin.SettingsActivity:
     public static void openFileManager()
     public static void openQQ()
     public static void showAnnouncementsDialog()
+    public static void toggleDesktopLyric()
     public static void toggleFloatingBall()
 com.example.musicplugin.ShazamApi:
     public static final com.example.musicplugin.ShazamApi INSTANCE

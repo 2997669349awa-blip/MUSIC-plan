@@ -59,6 +59,10 @@ class SettingsActivity : AppCompatActivity() {
         container.addView(buildButtonItem("听歌识曲悬浮球") {
             toggleFloatingBall()
         })
+        // v1.2.8：桌面歌词（仿酷狗）
+        container.addView(buildButtonItem("桌面歌词") {
+            toggleDesktopLyric()
+        })
         container.addView(buildButtonItem("听歌识曲（手动）") {
             startActivity(Intent(this, RecognizeActivity::class.java))
         })
@@ -177,6 +181,11 @@ class SettingsActivity : AppCompatActivity() {
      */
     private fun showAnnouncementsDialog() {
         val sb = StringBuilder()
+        sb.append("【v1.2.8 更新】\n")
+        sb.append("• 新增桌面歌词（设置→功能→桌面歌词），仿酷狗风格\n")
+        sb.append("• 悬浮于所有应用上层，显示当前歌词+下一句\n")
+        sb.append("• 可拖动定位，点击切换锁定/关闭\n")
+        sb.append("• 自动同步播放进度，歌词实时滚动\n\n")
         sb.append("【v1.2.7 更新】\n")
         sb.append("• PV播放器改用TextureView替代SurfaceView，彻底修复画面比例变形/拉伸\n")
         sb.append("• 修复PV退出后台再回来画面丢失的问题（SurfaceTexture持久化）\n")
@@ -495,6 +504,40 @@ class SettingsActivity : AppCompatActivity() {
             startService(intent)
         }
         android.widget.Toast.makeText(this, "悬浮球已开启，点击它开始识曲", android.widget.Toast.LENGTH_LONG).show()
+    }
+
+    /**
+     * v1.2.8：桌面歌词开关（仿酷狗）
+     * 开 → 检查悬浮窗权限 → 启动 DesktopLyricService
+     * 关 → 停止服务
+     */
+    private fun toggleDesktopLyric() {
+        val intent = Intent(this, DesktopLyricService::class.java)
+        val isRunning = DesktopLyricService::class.java.let {
+            val mgr = getSystemService(android.app.ActivityManager::class.java)
+            @Suppress("DEPRECATION")
+            mgr.getRunningServices(Int.MAX_VALUE).any { s -> s.service.className == it.name }
+        }
+        if (isRunning) {
+            stopService(intent)
+            android.widget.Toast.makeText(this, "桌面歌词已关闭", android.widget.Toast.LENGTH_SHORT).show()
+            return
+        }
+        if (!DesktopLyricService.canDrawOverlays(this)) {
+            android.widget.Toast.makeText(this, "请授予悬浮窗权限", android.widget.Toast.LENGTH_LONG).show()
+            val permIntent = Intent(
+                android.provider.Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                android.net.Uri.parse("package:$packageName")
+            )
+            startActivity(permIntent)
+            return
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(intent)
+        } else {
+            startService(intent)
+        }
+        android.widget.Toast.makeText(this, "桌面歌词已开启，点击可锁定/关闭", android.widget.Toast.LENGTH_LONG).show()
     }
 
     /**

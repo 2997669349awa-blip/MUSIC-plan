@@ -1,14 +1,14 @@
 [
     {
-        "merged": "/root/.gradle/daemon/8.14.4/com.example.musicplugin-mergePhoneReleaseResources-33:/layout/activity_main.xml",
-        "source": "/root/.gradle/daemon/8.14.4/com.example.musicplugin-main-36:/layout/activity_main.xml"
+        "merged": "com.example.musicplugin-mergePhoneReleaseResources-33:/layout/item_song.xml",
+        "source": "com.example.musicplugin-main-36:/layout/item_song.xml"
     },
     {
         "merged": "com.example.musicplugin-mergePhoneReleaseResources-33:/layout/dialog_announcement.xml",
         "source": "com.example.musicplugin-main-36:/layout/dialog_announcement.xml"
     },
     {
-        "merged": "/root/.gradle/daemon/8.14.4/com.example.musicplugin-mergePhoneReleaseResources-33:/layout/item_song.xml",
-        "source": "/root/.gradle/daemon/8.14.4/com.example.musicplugin-main-36:/layout/item_song.xml"
+        "merged": "com.example.musicplugin-mergePhoneReleaseResources-33:/layout/activity_main.xml",
+        "source": "com.example.musicplugin-main-36:/layout/activity_main.xml"
     }
 ]

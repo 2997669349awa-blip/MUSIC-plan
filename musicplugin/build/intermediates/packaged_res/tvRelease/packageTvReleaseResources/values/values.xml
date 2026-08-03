@@ -4,7 +4,7 @@
     <color name="ic_launcher_background">#3DDC84</color>
     <color name="white">#FFFFFFFF</color>
     <string name="about">关于</string>
-    <string name="app_name">绿符音乐</string>
+    <string name="app_name">MUSIC plan</string>
     <string name="cast">投屏</string>
     <string name="empty_playlist">播放列表为空</string>
     <string name="favorite">收藏</string>

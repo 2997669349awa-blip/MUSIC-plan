@@ -11,8 +11,8 @@
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 34,
-      "versionName": "1.2.7-tv",
+      "versionCode": 35,
+      "versionName": "1.2.8-tv",
       "outputFile": "AndroidManifest.xml"
     }
   ],

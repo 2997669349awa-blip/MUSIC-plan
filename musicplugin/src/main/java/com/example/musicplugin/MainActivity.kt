@@ -127,6 +127,9 @@ class MainActivity : AppCompatActivity() {
                         binding.imgAlbumArt.setImageResource(android.R.drawable.ic_media_play)
                         binding.tvLyrics.text = ""
                         lyricLines = emptyList()
+                        // v1.2.8：清空桌面歌词
+                        DesktopLyricService.lyricLines = emptyList()
+                        DesktopLyricService.songTitle = ""
                     }
                 }
             }
@@ -923,6 +926,9 @@ class MainActivity : AppCompatActivity() {
         lyricLines = lyricParser.parse(lrc, translation)
         // v1.0.9：新歌词载入时重置高亮索引，强制下次刷新
         lastLyricIdx = -1
+        // v1.2.8：同步歌词到桌面歌词服务
+        DesktopLyricService.lyricLines = lyricLines
+        DesktopLyricService.songTitle = currentPlayingSong?.title ?: ""
         if (lyricLines.isEmpty()) {
             binding.tvLyrics.text = "暂无歌词"
             return

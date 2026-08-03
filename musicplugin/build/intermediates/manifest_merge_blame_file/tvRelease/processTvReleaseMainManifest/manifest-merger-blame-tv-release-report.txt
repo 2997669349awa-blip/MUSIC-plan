@@ -1,8 +1,8 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.example.musicplugin.tv"
-4    android:versionCode="34"
-5    android:versionName="1.2.7-tv" >
+4    android:versionCode="35"
+5    android:versionName="1.2.8-tv" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="29"
@@ -74,212 +74,230 @@
 38    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
 38-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:21:5-88
 38-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:21:22-85
-39
-40    <permission
-40-->[androidx.core:core:1.13.1] /root/.gradle/caches/8.14.4/transforms/833f513205531a6ef9ece6234a696fda/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
-41        android:name="com.example.musicplugin.tv.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-41-->[androidx.core:core:1.13.1] /root/.gradle/caches/8.14.4/transforms/833f513205531a6ef9ece6234a696fda/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
-42        android:protectionLevel="signature" />
-42-->[androidx.core:core:1.13.1] /root/.gradle/caches/8.14.4/transforms/833f513205531a6ef9ece6234a696fda/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
-43
-44    <uses-permission android:name="com.example.musicplugin.tv.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-44-->[androidx.core:core:1.13.1] /root/.gradle/caches/8.14.4/transforms/833f513205531a6ef9ece6234a696fda/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
-44-->[androidx.core:core:1.13.1] /root/.gradle/caches/8.14.4/transforms/833f513205531a6ef9ece6234a696fda/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
-45
-46    <application
-46-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:23:5-92:19
-47        android:allowBackup="true"
-47-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:24:9-35
-48        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-48-->[androidx.core:core:1.13.1] /root/.gradle/caches/8.14.4/transforms/833f513205531a6ef9ece6234a696fda/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
-49        android:banner="@drawable/ic_music_plugin_foreground"
-49-->/workspace/FileManager/musicplugin/src/tv/AndroidManifest.xml:12:9-62
-50        android:extractNativeLibs="false"
-51        android:icon="@mipmap/ic_launcher"
-51-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:25:9-43
-52        android:label="@string/app_name"
-52-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:26:9-41
-53        android:requestLegacyExternalStorage="true"
-53-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:28:9-52
-54        android:roundIcon="@mipmap/ic_launcher_round"
-54-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:27:9-54
-55        android:supportsRtl="true"
-55-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:29:9-35
-56        android:theme="@style/Theme.MusicPlugin"
-56-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:30:9-49
-57        android:usesCleartextTraffic="true" >
-57-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:31:9-44
-58        <activity
-58-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:34:9-47:20
-59            android:name="com.example.musicplugin.MainActivity"
-59-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:35:13-41
-60            android:exported="true"
-60-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:36:13-36
-61            android:launchMode="singleTop" >
-61-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:37:13-43
-62
-63            <!-- 同时注册 LEANBACK_LAUNCHER 和 LAUNCHER，最大化兼容性 -->
-64            <intent-filter>
-64-->/workspace/FileManager/musicplugin/src/tv/AndroidManifest.xml:19:13-22:29
-65                <action android:name="android.intent.action.MAIN" />
-65-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:40:17-69
-65-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:40:25-66
-66
-67                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
-67-->/workspace/FileManager/musicplugin/src/tv/AndroidManifest.xml:21:17-86
-67-->/workspace/FileManager/musicplugin/src/tv/AndroidManifest.xml:21:27-83
-68            </intent-filter>
-69            <intent-filter>
-69-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:43:13-46:29
-70                <action android:name="com.example.filemanager.OPEN_MUSIC_PLUGIN" />
-70-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:44:17-84
-70-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:44:25-81
-71
-72                <category android:name="android.intent.category.DEFAULT" />
-72-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:45:17-76
-72-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:45:27-73
-73            </intent-filter>
-74            <!-- v1.1.7：桌面图标恢复，纯黑背景 + 居中绿色音符 -->
-75            <intent-filter>
-75-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:39:13-42:29
-76                <action android:name="android.intent.action.MAIN" />
-76-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:40:17-69
-76-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:40:25-66
-77
-78                <category android:name="android.intent.category.LAUNCHER" />
-78-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:41:17-77
-78-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:41:27-74
-79            </intent-filter>
-80        </activity>
-81        <activity
-81-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:49:9-52:77
-82            android:name="com.example.musicplugin.LoginWebActivity"
-82-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:50:13-45
-83            android:configChanges="orientation|screenSize|keyboardHidden"
-83-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:52:13-74
-84            android:exported="false" /> <!-- v1.0.4：设置页面 -->
-84-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:51:13-37
-85        <activity
-85-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:55:9-58:77
-86            android:name="com.example.musicplugin.SettingsActivity"
-86-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:56:13-45
-87            android:configChanges="orientation|screenSize|keyboardHidden"
-87-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:58:13-74
-88            android:exported="false" /> <!-- v1.1.4：PV 搜索板块（内置 VideoView 播放，支持横竖屏） -->
-88-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:57:13-37
-89        <activity
-89-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:61:9-64:77
-90            android:name="com.example.musicplugin.PvSearchActivity"
-90-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:62:13-45
-91            android:configChanges="orientation|screenSize|keyboardHidden"
-91-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:64:13-74
-92            android:exported="false" /> <!-- v1.1.7：听歌识曲页面 -->
-92-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:63:13-37
-93        <activity
-93-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:67:9-70:77
-94            android:name="com.example.musicplugin.RecognizeActivity"
-94-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:68:13-46
-95            android:configChanges="orientation|screenSize|keyboardHidden"
-95-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:70:13-74
-96            android:exported="false" /> <!-- v1.2.7：HTML 介绍页（WebView 加载 assets/intro.html） -->
-96-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:69:13-37
-97        <activity
-97-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:73:9-76:77
-98            android:name="com.example.musicplugin.HtmlIntroActivity"
-98-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:74:13-46
-99            android:configChanges="orientation|screenSize|keyboardHidden"
-99-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:76:13-74
-100            android:exported="false" /> <!-- v1.1.7：听歌识曲全局悬浮球服务 -->
-100-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:75:13-37
-101        <service
-101-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:79:9-82:58
-102            android:name="com.example.musicplugin.RecognizeFloatingService"
-102-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:80:13-53
-103            android:exported="false"
-103-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:81:13-37
-104            android:foregroundServiceType="microphone" />
-104-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:82:13-55
-105        <service
-105-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:84:9-91:19
-106            android:name="com.example.musicplugin.MusicService"
-106-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:85:13-41
-107            android:exported="false"
-107-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:86:13-37
-108            android:foregroundServiceType="mediaPlayback" >
-108-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:87:13-58
-109            <intent-filter>
-109-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:88:13-90:29
-110                <action android:name="android.intent.action.MEDIA_BUTTON" />
-110-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:89:17-77
-110-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:89:25-74
-111            </intent-filter>
-112        </service>
-113
-114        <provider
-114-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/8.14.4/transforms/e290d2fb9fc8ba0fcb65fcc0548e8b1d/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
-115            android:name="androidx.startup.InitializationProvider"
-115-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/8.14.4/transforms/e290d2fb9fc8ba0fcb65fcc0548e8b1d/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
-116            android:authorities="com.example.musicplugin.tv.androidx-startup"
-116-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/8.14.4/transforms/e290d2fb9fc8ba0fcb65fcc0548e8b1d/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
-117            android:exported="false" >
-117-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/8.14.4/transforms/e290d2fb9fc8ba0fcb65fcc0548e8b1d/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
-118            <meta-data
-118-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/8.14.4/transforms/e290d2fb9fc8ba0fcb65fcc0548e8b1d/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
-119                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-119-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/8.14.4/transforms/e290d2fb9fc8ba0fcb65fcc0548e8b1d/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
-120                android:value="androidx.startup" />
-120-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/8.14.4/transforms/e290d2fb9fc8ba0fcb65fcc0548e8b1d/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
-121            <meta-data
-121-->[androidx.lifecycle:lifecycle-process:2.6.2] /root/.gradle/caches/8.14.4/transforms/8e9b03db952b4cc099936e27da4d7d8a/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:29:13-31:52
-122                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-122-->[androidx.lifecycle:lifecycle-process:2.6.2] /root/.gradle/caches/8.14.4/transforms/8e9b03db952b4cc099936e27da4d7d8a/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:30:17-78
-123                android:value="androidx.startup" />
-123-->[androidx.lifecycle:lifecycle-process:2.6.2] /root/.gradle/caches/8.14.4/transforms/8e9b03db952b4cc099936e27da4d7d8a/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:31:17-49
-124            <meta-data
-124-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
-125                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-125-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
-126                android:value="androidx.startup" />
-126-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
-127        </provider>
-128
-129        <receiver
-129-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
-130            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-130-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
-131            android:directBootAware="false"
-131-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
-132            android:enabled="true"
-132-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
-133            android:exported="true"
-133-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
-134            android:permission="android.permission.DUMP" >
-134-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
-135            <intent-filter>
-135-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
-136                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-136-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
-136-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
-137            </intent-filter>
-138            <intent-filter>
-138-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
-139                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-139-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
-139-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
-140            </intent-filter>
-141            <intent-filter>
-141-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
-142                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-142-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
-142-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
-143            </intent-filter>
+39    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+39-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:22:5-89
+39-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:22:22-86
+40
+41    <permission
+41-->[androidx.core:core:1.13.1] /root/.gradle/caches/transforms-4/8e0a0bff2d388b6446750efdf4a5758f/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+42        android:name="com.example.musicplugin.tv.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+42-->[androidx.core:core:1.13.1] /root/.gradle/caches/transforms-4/8e0a0bff2d388b6446750efdf4a5758f/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+43        android:protectionLevel="signature" />
+43-->[androidx.core:core:1.13.1] /root/.gradle/caches/transforms-4/8e0a0bff2d388b6446750efdf4a5758f/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+44
+45    <uses-permission android:name="com.example.musicplugin.tv.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+45-->[androidx.core:core:1.13.1] /root/.gradle/caches/transforms-4/8e0a0bff2d388b6446750efdf4a5758f/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+45-->[androidx.core:core:1.13.1] /root/.gradle/caches/transforms-4/8e0a0bff2d388b6446750efdf4a5758f/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+46
+47    <application
+47-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:24:5-103:19
+48        android:allowBackup="true"
+48-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:25:9-35
+49        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+49-->[androidx.core:core:1.13.1] /root/.gradle/caches/transforms-4/8e0a0bff2d388b6446750efdf4a5758f/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+50        android:banner="@drawable/ic_music_plugin_foreground"
+50-->/workspace/FileManager/musicplugin/src/tv/AndroidManifest.xml:12:9-62
+51        android:extractNativeLibs="false"
+52        android:icon="@mipmap/ic_launcher"
+52-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:26:9-43
+53        android:label="@string/app_name"
+53-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:27:9-41
+54        android:requestLegacyExternalStorage="true"
+54-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:29:9-52
+55        android:roundIcon="@mipmap/ic_launcher_round"
+55-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:28:9-54
+56        android:supportsRtl="true"
+56-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:30:9-35
+57        android:theme="@style/Theme.MusicPlugin"
+57-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:31:9-49
+58        android:usesCleartextTraffic="true" >
+58-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:32:9-44
+59        <activity
+59-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:35:9-48:20
+60            android:name="com.example.musicplugin.MainActivity"
+60-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:36:13-41
+61            android:exported="true"
+61-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:37:13-36
+62            android:launchMode="singleTop" >
+62-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:38:13-43
+63
+64            <!-- 同时注册 LEANBACK_LAUNCHER 和 LAUNCHER，最大化兼容性 -->
+65            <intent-filter>
+65-->/workspace/FileManager/musicplugin/src/tv/AndroidManifest.xml:19:13-22:29
+66                <action android:name="android.intent.action.MAIN" />
+66-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:41:17-69
+66-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:41:25-66
+67
+68                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+68-->/workspace/FileManager/musicplugin/src/tv/AndroidManifest.xml:21:17-86
+68-->/workspace/FileManager/musicplugin/src/tv/AndroidManifest.xml:21:27-83
+69            </intent-filter>
+70            <intent-filter>
+70-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:44:13-47:29
+71                <action android:name="com.example.filemanager.OPEN_MUSIC_PLUGIN" />
+71-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:45:17-84
+71-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:45:25-81
+72
+73                <category android:name="android.intent.category.DEFAULT" />
+73-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:46:17-76
+73-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:46:27-73
+74            </intent-filter>
+75            <!-- v1.1.7：桌面图标恢复，纯黑背景 + 居中绿色音符 -->
+76            <intent-filter>
+76-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:40:13-43:29
+77                <action android:name="android.intent.action.MAIN" />
+77-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:41:17-69
+77-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:41:25-66
+78
+79                <category android:name="android.intent.category.LAUNCHER" />
+79-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:42:17-77
+79-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:42:27-74
+80            </intent-filter>
+81        </activity>
+82        <activity
+82-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:50:9-53:77
+83            android:name="com.example.musicplugin.LoginWebActivity"
+83-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:51:13-45
+84            android:configChanges="orientation|screenSize|keyboardHidden"
+84-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:53:13-74
+85            android:exported="false" /> <!-- v1.0.4：设置页面 -->
+85-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:52:13-37
+86        <activity
+86-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:56:9-59:77
+87            android:name="com.example.musicplugin.SettingsActivity"
+87-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:57:13-45
+88            android:configChanges="orientation|screenSize|keyboardHidden"
+88-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:59:13-74
+89            android:exported="false" /> <!-- v1.1.4：PV 搜索板块（内置 VideoView 播放，支持横竖屏） -->
+89-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:58:13-37
+90        <activity
+90-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:62:9-65:77
+91            android:name="com.example.musicplugin.PvSearchActivity"
+91-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:63:13-45
+92            android:configChanges="orientation|screenSize|keyboardHidden"
+92-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:65:13-74
+93            android:exported="false" /> <!-- v1.1.7：听歌识曲页面 -->
+93-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:64:13-37
+94        <activity
+94-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:68:9-71:77
+95            android:name="com.example.musicplugin.RecognizeActivity"
+95-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:69:13-46
+96            android:configChanges="orientation|screenSize|keyboardHidden"
+96-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:71:13-74
+97            android:exported="false" /> <!-- v1.2.7：HTML 介绍页（WebView 加载 assets/intro.html） -->
+97-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:70:13-37
+98        <activity
+98-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:74:9-77:77
+99            android:name="com.example.musicplugin.HtmlIntroActivity"
+99-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:75:13-46
+100            android:configChanges="orientation|screenSize|keyboardHidden"
+100-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:77:13-74
+101            android:exported="false" /> <!-- v1.1.7：听歌识曲全局悬浮球服务 -->
+101-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:76:13-37
+102        <service
+102-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:80:9-83:58
+103            android:name="com.example.musicplugin.RecognizeFloatingService"
+103-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:81:13-53
+104            android:exported="false"
+104-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:82:13-37
+105            android:foregroundServiceType="microphone" />
+105-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:83:13-55
+106        <service
+106-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:85:9-92:19
+107            android:name="com.example.musicplugin.MusicService"
+107-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:86:13-41
+108            android:exported="false"
+108-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:87:13-37
+109            android:foregroundServiceType="mediaPlayback" >
+109-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:88:13-58
+110            <intent-filter>
+110-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:89:13-91:29
+111                <action android:name="android.intent.action.MEDIA_BUTTON" />
+111-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:90:17-77
+111-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:90:25-74
+112            </intent-filter>
+113        </service> <!-- v1.2.8：桌面歌词悬浮服务 -->
+114        <service
+114-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:95:9-102:19
+115            android:name="com.example.musicplugin.DesktopLyricService"
+115-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:96:13-48
+116            android:exported="false"
+116-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:97:13-37
+117            android:foregroundServiceType="specialUse" >
+117-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:98:13-55
+118            <property
+118-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:99:13-101:49
+119                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+119-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:100:17-76
+120                android:value="desktop_lyric" />
+120-->/workspace/FileManager/musicplugin/src/main/AndroidManifest.xml:101:17-46
+121        </service>
+122
+123        <provider
+123-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+124            android:name="androidx.startup.InitializationProvider"
+124-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+125            android:authorities="com.example.musicplugin.tv.androidx-startup"
+125-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+126            android:exported="false" >
+126-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+127            <meta-data
+127-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+128                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+128-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+129                android:value="androidx.startup" />
+129-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+130            <meta-data
+130-->[androidx.lifecycle:lifecycle-process:2.6.2] /root/.gradle/caches/transforms-4/44d9374c2fc79a1ce870385ec114cea5/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:29:13-31:52
+131                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+131-->[androidx.lifecycle:lifecycle-process:2.6.2] /root/.gradle/caches/transforms-4/44d9374c2fc79a1ce870385ec114cea5/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:30:17-78
+132                android:value="androidx.startup" />
+132-->[androidx.lifecycle:lifecycle-process:2.6.2] /root/.gradle/caches/transforms-4/44d9374c2fc79a1ce870385ec114cea5/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:31:17-49
+133            <meta-data
+133-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+134                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+134-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+135                android:value="androidx.startup" />
+135-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+136        </provider>
+137
+138        <receiver
+138-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+139            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+139-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+140            android:directBootAware="false"
+140-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+141            android:enabled="true"
+141-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+142            android:exported="true"
+142-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+143            android:permission="android.permission.DUMP" >
+143-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
 144            <intent-filter>
-144-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
-145                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-145-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
-145-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.14.4/transforms/7beba874ab5f30e752452368228ce910/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+144-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+145                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+145-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+145-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
 146            </intent-filter>
-147        </receiver>
-148    </application>
-149
-150</manifest>
+147            <intent-filter>
+147-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+148                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+148-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+148-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+149            </intent-filter>
+150            <intent-filter>
+150-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+151                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+151-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+151-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+152            </intent-filter>
+153            <intent-filter>
+153-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+154                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+154-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+154-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+155            </intent-filter>
+156        </receiver>
+157    </application>
+158
+159</manifest>

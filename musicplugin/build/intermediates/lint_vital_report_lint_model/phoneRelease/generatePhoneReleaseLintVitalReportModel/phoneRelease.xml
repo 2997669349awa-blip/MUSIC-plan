@@ -28,6 +28,6 @@
       applicationId="com.example.musicplugin"
       generatedSourceFolders="build/generated/ap_generated_sources/phoneRelease/out:build/generated/data_binding_base_class_source_out/phoneRelease/out"
       generatedResourceFolders="build/generated/res/resValues/phone/release"
-      desugaredMethodsFiles="/root/.gradle/caches/8.14.4/transforms/a1da8128c8454fcff74ce829486f7f51/transformed/D8BackportedDesugaredMethods.txt">
+      desugaredMethodsFiles="/root/.gradle/caches/transforms-4/464b18d790de16efd1bac404100a4564/transformed/D8BackportedDesugaredMethods.txt">
   </artifact>
 </variant>

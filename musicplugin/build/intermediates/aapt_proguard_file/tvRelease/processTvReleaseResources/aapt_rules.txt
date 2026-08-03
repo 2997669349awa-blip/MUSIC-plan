@@ -1,6 +1,7 @@
 -keep class androidx.core.app.CoreComponentFactory { <init>(); }
 -keep class androidx.profileinstaller.ProfileInstallReceiver { <init>(); }
 -keep class androidx.startup.InitializationProvider { <init>(); }
+-keep class com.example.musicplugin.DesktopLyricService { <init>(); }
 -keep class com.example.musicplugin.HtmlIntroActivity { <init>(); }
 -keep class com.example.musicplugin.LoginWebActivity { <init>(); }
 -keep class com.example.musicplugin.MainActivity { <init>(); }
