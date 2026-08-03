@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>MUSIC plan - 网页版</title>
+<style>
+  :root{
+    --bg:#0A0A0A;--bg-2:#141414;--bg-3:#1A1A1A;
+    --green:#1ED760;--text:#F0F0F0;--dim:#7A7A7A;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;overflow-x:hidden}
+  a{text-decoration:none;color:inherit}
+
+  /* 顶栏 */
+  .topbar{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.05);padding:12px 16px;display:flex;align-items:center;gap:12px}
+  .topbar .logo{font-size:18px;font-weight:800;color:var(--green);white-space:nowrap}
+  .search-wrap{flex:1;display:flex;align-items:center;background:var(--bg-3);border-radius:24px;padding:8px 16px;gap:8px}
+  .search-wrap input{flex:1;background:none;border:none;color:var(--text);font-size:14px;outline:none}
+  .search-wrap input::placeholder{color:#555}
+  .search-wrap button{background:none;border:none;color:var(--green);font-size:18px;cursor:pointer;padding:4px}
+
+  /* 列表 */
+  .song-list{padding:8px 12px 120px}
+  .song-item{display:flex;align-items:center;padding:10px 12px;border-radius:10px;cursor:pointer;transition:background 0.15s;gap:12px}
+  .song-item:hover,.song-item.active{background:var(--bg-3)}
+  .song-item .idx{width:28px;text-align:center;color:var(--dim);font-size:13px;font-variant-numeric:tabular-nums}
+  .song-item .info{flex:1;min-width:0}
+  .song-item .name{font-size:14px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .song-item .artist{font-size:12px;color:var(--dim);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .song-item .cover{width:40px;height:40px;border-radius:8px;object-fit:cover;background:var(--bg-3)}
+
+  /* 底部播放栏 */
+  .player-bar{position:fixed;bottom:0;left:0;right:0;z-index:100;background:rgba(16,16,16,0.95);backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,0.06);padding:8px 16px 16px}
+  .player-info{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+  .player-info .cover{width:44px;height:44px;border-radius:8px;object-fit:cover;background:var(--bg-3)}
+  .player-info .meta{flex:1;min-width:0}
+  .player-info .title{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .player-info .sub{font-size:12px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .player-info .controls{display:flex;gap:16px;align-items:center}
+  .player-info .controls button{background:none;border:none;color:var(--text);font-size:22px;cursor:pointer;padding:4px;transition:color 0.15s}
+  .player-info .controls button:hover{color:var(--green)}
+
+  /* 进度条 */
+  .progress{display:flex;align-items:center;gap:8px}
+  .progress .time{font-size:11px;color:var(--dim);font-variant-numeric:tabular-nums;min-width:36px;text-align:center}
+  .progress-bar{flex:1;height:4px;background:var(--bg-3);border-radius:2px;cursor:pointer;position:relative;overflow:hidden}
+  .progress-bar .fill{position:absolute;left:0;top:0;bottom:0;background:var(--green);border-radius:2px;width:0%;transition:width 0.1s linear}
+
+  /* 歌词面板 */
+  .lyric-panel{position:fixed;bottom:80px;left:0;right:0;max-height:50vh;background:rgba(10,10,10,0.96);backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,0.06);z-index:99;overflow-y:auto;padding:24px 20px;display:none;transition:transform 0.3s}
+  .lyric-panel.show{display:block}
+  .lyric-line{text-align:center;padding:6px 0;color:#666;font-size:14px;transition:all 0.3s}
+  .lyric-line.active{color:var(--green);font-size:17px;font-weight:700}
+  .lyric-line.translation{font-size:12px;color:#555}
+
+  /* 空状态 */
+  .empty{text-align:center;padding:80px 20px;color:var(--dim);font-size:14px}
+  .empty .icon{font-size:48px;margin-bottom:12px;opacity:0.3}
+  .loading{text-align:center;padding:40px;color:var(--dim);font-size:14px}
+
+  /* 免责声明 */
+  .disclaimer{position:fixed;bottom:0;left:0;right:0;z-index:200;background:rgba(10,10,10,0.98);padding:24px 20px;border-top:1px solid var(--green);display:none}
+  .disclaimer.show{display:block}
+  .disclaimer h3{color:var(--green);font-size:16px;margin-bottom:10px}
+  .disclaimer p{font-size:12px;color:#aaa;line-height:1.7;margin-bottom:16px}
+  .disclaimer button{width:100%;padding:12px;background:var(--green);color:#000;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer}
+  .disclaimer label{display:flex;align-items:center;gap:6px;margin-bottom:12px;font-size:12px;color:#888}
+  .disclaimer input[type=checkbox]{accent-color:var(--green)}
+
+  /* 返回按钮 */
+  .back-link{position:fixed;top:14px;right:16px;z-index:101;font-size:12px;color:var(--dim);background:var(--bg-3);padding:6px 12px;border-radius:16px}
+  .back-link:hover{color:var(--green)}
+</style>
+</head>
+<body>
+
+<!-- 免责声明 -->
+<div class="disclaimer" id="disclaimer">
+  <h3>免责声明</h3>
+  <p>本网页仅供技术学习与交流，所有音乐内容来自搜索引擎公开结果，版权归原作者所有。如侵权请联系删除。</p>
+  <label><input type="checkbox" id="neverShow"> 永久不再显示</label>
+  <button onclick="acceptDisclaimer()">确定</button>
+</div>
+
+<!-- 顶栏 -->
+<div class="topbar">
+  <span class="logo">MUSIC plan</span>
+  <div class="search-wrap">
+    <input type="text" id="searchInput" placeholder="搜索歌曲、歌手...">
+    <button onclick="doSearch()">🔍</button>
+  </div>
+</div>
+<a href="https://2997669349awa-blip.github.io/MUSIC-plan/" class="back-link">← 返回介绍页</a>
+
+<!-- 歌曲列表 -->
+<div class="song-list" id="songList">
+  <div class="empty">
+    <div class="icon">🎵</div>
+    <div>搜索你想听的音乐</div>
+  </div>
+</div>
+
+<!-- 歌词面板 -->
+<div class="lyric-panel" id="lyricPanel"></div>
+
+<!-- 播放栏 -->
+<div class="player-bar" id="playerBar" style="display:none">
+  <div class="player-info">
+    <img class="cover" id="pCover" src="">
+    <div class="meta">
+      <div class="title" id="pTitle">未播放</div>
+      <div class="sub" id="pArtist">-</div>
+    </div>
+    <div class="controls">
+      <button onclick="togglePlay()" id="btnPlay">⏸</button>
+      <button onclick="toggleLyric()">词</button>
+    </div>
+  </div>
+  <div class="progress">
+    <span class="time" id="curTime">0:00</span>
+    <div class="progress-bar" id="progressBar"><div class="fill" id="progressFill"></div></div>
+    <span class="time" id="totalTime">0:00</span>
+  </div>
+</div>
+
+<audio id="audio" crossorigin="anonymous"></audio>
+
+<script>
+// === 配置 ===
+const CORS_PROXY = 'https://corsproxy.io/?url=';
+const NETEASE_API = 'https://music.163.com/api';
+const NETEASE_SONG_URL = 'https://music.163.com/api/song/enhance/player/url/v1';
+const KUGOU_SEARCH = 'http://mobilecdn.kugou.com/api/v3/search/song';
+const KUWO_SEARCH = 'http://search.kuwo.cn/r.s';
+
+let currentList = [];
+let currentIndex = -1;
+let lyricLines = [];
+let lastLyricIdx = -1;
+let audio = document.getElementById('audio');
+
+// === 免责声明 ===
+(function(){
+  if (!localStorage.getItem('mp_never_show')) {
+    document.getElementById('disclaimer').classList.add('show');
+  }
+})();
+function acceptDisclaimer() {
+  if (document.getElementById('neverShow').checked) {
+    localStorage.setItem('mp_never_show', '1');
+  }
+  document.getElementById('disclaimer').classList.remove('show');
+}
+
+// === 搜索 ===
+function doSearch() {
+  const kw = document.getElementById('searchInput').value.trim();
+  if (!kw) return;
+  const list = document.getElementById('songList');
+  list.innerHTML = '<div class="loading">搜索中...</div>';
+
+  const url = CORS_PROXY + encodeURIComponent(NETEASE_API + '/search/get?s=' + encodeURIComponent(kw) + '&type=1&limit=30&offset=0');
+  fetch(url, { headers: { 'Referer': 'https://music.163.com' } })
+    .then(r => r.json())
+    .then(json => {
+      if (json.code !== 200 || !json.result || !json.result.songs) {
+        list.innerHTML = '<div class="empty"><div class="icon">😕</div><div>未找到结果</div></div>';
+        return;
+      }
+      currentList = json.result.songs.map(s => ({
+        id: s.id,
+        name: s.name,
+        artist: (s.artists && s.artists[0]) ? s.artists[0].name : '未知',
+        album: s.album ? s.album.name : '',
+        picUrl: s.album ? s.album.picUrl : null,
+        duration: s.duration || 0
+      }));
+      renderList();
+    })
+    .catch(e => {
+      list.innerHTML = '<div class="empty"><div class="icon">⚠️</div><div>搜索失败，请稍后重试</div></div>';
+    });
+}
+
+function renderList() {
+  const list = document.getElementById('songList');
+  list.innerHTML = currentList.map((s, i) => `
+    <div class="song-item ${i === currentIndex ? 'active' : ''}" onclick="playSong(${i})">
+      <span class="idx">${String(i + 1).padStart(2, '0')}</span>
+      ${s.picUrl ? `<img class="cover" src="${s.picUrl}?param=80x80" onerror="this.style.display='none'">` : '<div class="cover"></div>'}
+      <div class="info">
+        <div class="name">${escapeHtml(s.name)}</div>
+        <div class="artist">${escapeHtml(s.artist)} ${s.album ? '· ' + escapeHtml(s.album) : ''}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function escapeHtml(t) {
+  const d = document.createElement('div');
+  d.textContent = t;
+  return d.innerHTML;
+}
+
+// === 播放 ===
+function playSong(index) {
+  if (index < 0 || index >= currentList.length) return;
+  currentIndex = index;
+  const song = currentList[index];
+
+  document.getElementById('playerBar').style.display = 'block';
+  document.getElementById('pTitle').textContent = song.name;
+  document.getElementById('pArtist').textContent = song.artist;
+  if (song.picUrl) {
+    document.getElementById('pCover').src = song.picUrl + '?param=100x100';
+  }
+
+  document.getElementById('btnPlay').textContent = '⏳';
+  renderList();
+
+  // 获取播放链接
+  const url = CORS_PROXY + encodeURIComponent(NETEASE_SONG_URL);
+  fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Referer': 'https://music.163.com' },
+    body: 'ids=[' + song.id + ']&level=standard&encodeType=flac'
+  })
+    .then(r => r.json())
+    .then(json => {
+      if (json.code === 200 && json.data && json.data[0] && json.data[0].url) {
+        audio.src = json.data[0].url;
+        audio.play().then(() => {
+          document.getElementById('btnPlay').textContent = '⏸';
+        }).catch(e => {
+          document.getElementById('btnPlay').textContent = '▶';
+        });
+        fetchLyrics(song.id);
+      } else {
+        // 尝试酷狗兜底
+        fallbackKugou(song);
+      }
+    })
+    .catch(e => {
+      fallbackKugou(song);
+    });
+}
+
+function fallbackKugou(song) {
+  const kw = song.name + ' ' + song.artist;
+  const url = CORS_PROXY + encodeURIComponent(KUGOU_SEARCH + '?keyword=' + encodeURIComponent(kw) + '&page=1&pagesize=5&format=json');
+  fetch(url)
+    .then(r => r.json())
+    .then(json => {
+      if (json.status === 1 && json.data && json.data.info && json.data.info[0]) {
+        const hash = json.data.info[0].hash;
+        const playUrl = CORS_PROXY + encodeURIComponent('http://m.kugou.com/app/i/getSongInfo.php?cmd=playInfo&hash=' + hash);
+        return fetch(playUrl).then(r => r.json());
+      }
+      throw new Error('no kugou');
+    })
+    .then(json => {
+      if (json.url) {
+        audio.src = json.url;
+        audio.play();
+        document.getElementById('btnPlay').textContent = '⏸';
+      } else {
+        alert('该歌曲暂时无法播放，换一首试试');
+        document.getElementById('btnPlay').textContent = '▶';
+      }
+    })
+    .catch(e => {
+      alert('该歌曲暂时无法播放，换一首试试');
+      document.getElementById('btnPlay').textContent = '▶';
+    });
+}
+
+function togglePlay() {
+  if (audio.paused) {
+    audio.play();
+    document.getElementById('btnPlay').textContent = '⏸';
+  } else {
+    audio.pause();
+    document.getElementById('btnPlay').textContent = '▶';
+  }
+}
+
+// 自动播放下一首
+audio.addEventListener('ended', () => {
+  if (currentIndex + 1 < currentList.length) {
+    playSong(currentIndex + 1);
+  }
+});
+
+// 进度条
+audio.addEventListener('timeupdate', () => {
+  if (audio.duration) {
+    const pct = (audio.currentTime / audio.duration) * 100;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('curTime').textContent = fmtTime(audio.currentTime);
+    document.getElementById('totalTime').textContent = fmtTime(audio.duration);
+    updateLyricHighlight();
+  }
+});
+
+// 点击进度条跳转
+document.getElementById('progressBar').addEventListener('click', (e) => {
+  if (!audio.duration) return;
+  const rect = e.currentTarget.getBoundingClientRect();
+  const pct = (e.clientX - rect.left) / rect.width;
+  audio.currentTime = pct * audio.duration;
+});
+
+function fmtTime(sec) {
+  const m = Math.floor(sec / 60);
+  const s = Math.floor(sec % 60);
+  return m + ':' + String(s).padStart(2, '0');
+}
+
+// === 歌词 ===
+function fetchLyrics(songId) {
+  lyricLines = [];
+  lastLyricIdx = -1;
+  const url = CORS_PROXY + encodeURIComponent(NETEASE_API + '/song/lyric?id=' + songId + '&lv=1&kv=1&tv=1');
+  fetch(url, { headers: { 'Referer': 'https://music.163.com' } })
+    .then(r => r.json())
+    .then(json => {
+      const lrc = json.lrc ? json.lrc.lyric : null;
+      if (!lrc) return;
+      lyricLines = parseLrc(lrc);
+      renderLyrics();
+    })
+    .catch(e => {});
+}
+
+function parseLrc(lrc) {
+  const lines = [];
+  const regex = /\[(\d{2}):(\d{2})\.(\d{2,3})](.*)/g;
+  let m;
+  while ((m = regex.exec(lrc)) !== null) {
+    const ms = parseInt(m[1]) * 60000 + parseInt(m[2]) * 1000 + parseInt(m[3]);
+    lines.push({ time: ms, text: m[4].trim() });
+  }
+  return lines.sort((a, b) => a.time - b.time);
+}
+
+function renderLyrics() {
+  const panel = document.getElementById('lyricPanel');
+  panel.innerHTML = lyricLines.map((l, i) =>
+    `<div class="lyric-line" id="lyr${i}">${escapeHtml(l.text) || '...'}</div>`
+  ).join('');
+}
+
+function updateLyricHighlight() {
+  if (lyricLines.length === 0) return;
+  const curMs = audio.currentTime * 1000;
+  let idx = -1;
+  for (let i = 0; i < lyricLines.length; i++) {
+    if (lyricLines[i].time <= curMs) idx = i;
+    else break;
+  }
+  if (idx === lastLyricIdx) return;
+  lastLyricIdx = idx;
+
+  document.querySelectorAll('.lyric-line').forEach(el => el.classList.remove('active'));
+  const el = document.getElementById('lyr' + idx);
+  if (el) {
+    el.classList.add('active');
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+
+function toggleLyric() {
+  const panel = document.getElementById('lyricPanel');
+  panel.classList.toggle('show');
+  if (panel.classList.contains('show') && lyricLines.length === 0) {
+    panel.innerHTML = '<div style="text-align:center;color:#666;padding:20px">暂无歌词</div>';
+  }
+}
+
+// 回车搜索
+document.getElementById('searchInput').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') doSearch();
+});
+</script>
+</body>
+</html>
