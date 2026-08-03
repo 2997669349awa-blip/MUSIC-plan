@@ -687,7 +687,10 @@ object MusicApi {
                 // 按分数降序，分数 > 0 的优先；分数为 0 的（完全不匹配）也保留作最后兜底
                 candidates.sortByDescending { it.score }
 
-                // v1.2.7：逐个尝试，第一个能拿到非空歌词的就返回
+                // v1.2.8：逐个尝试，第一个能拿到实际歌词的就返回
+                // 修复：之前只检查 isNullOrBlank，但有些歌曲返回的 LRC 只有 [by:xxx] [ti:xxx] 元数据
+                // LyricParser 解析后得到 0 行，导致歌词空白
+                val timeTagRegex = Regex("""\[\d{2}:\d{2}\.\d{2,3}]""")
                 fun tryNext(startIdx: Int) {
                     if (startIdx >= candidates.size) {
                         callback(null, null)
@@ -695,10 +698,10 @@ object MusicApi {
                     }
                     val songId = songs.getJSONObject(candidates[startIdx].idx).optLong("id")
                     getLyrics(songId) { lrc, tlrc ->
-                        if (!lrc.isNullOrBlank()) {
+                        if (!lrc.isNullOrBlank() && timeTagRegex.containsMatchIn(lrc)) {
                             callback(lrc, tlrc)
                         } else {
-                            // 这首没歌词，试下一首
+                            // 这首没实际歌词，试下一首
                             tryNext(startIdx + 1)
                         }
                     }
@@ -731,8 +734,22 @@ object MusicApi {
             if (songs == null || songs.length() == 0) {
                 callback(null, null); return
             }
-            val songId = songs.getJSONObject(0).optLong("id")
-            getLyrics(songId, callback)
+            // v1.2.8：逐个尝试，跳过只有元数据的假歌词
+            val timeTagRegex = Regex("""\[\d{2}:\d{2}\.\d{2,3}]""")
+            fun tryNext(idx: Int) {
+                if (idx >= songs.length()) {
+                    callback(null, null); return
+                }
+                val songId = songs.getJSONObject(idx).optLong("id")
+                getLyrics(songId) { lrc, tlrc ->
+                    if (!lrc.isNullOrBlank() && timeTagRegex.containsMatchIn(lrc)) {
+                        callback(lrc, tlrc)
+                    } else {
+                        tryNext(idx + 1)
+                    }
+                }
+            }
+            tryNext(0)
         } catch (e: Exception) {
             callback(null, null)
         }
