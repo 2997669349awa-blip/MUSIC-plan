@@ -29,6 +29,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.musicplugin.databinding.ActivityMainBinding
+import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
 
@@ -186,6 +187,10 @@ class MainActivity : AppCompatActivity() {
 
         // v1.2.7：启动公告弹窗（免责声明），勾选「永久不再接收」后不再弹出
         showAnnouncementIfNeeded()
+
+        // v1.2.8：启动时检查更新，对比网站 version.json 的版本号
+        // 低于最新版弹对话框；用户点「我知道了」后该版本不再弹出
+        checkForUpdate()
 
         // 初始化 API（读取已保存的 Cookie）
         MusicApi.init(this)
@@ -1306,5 +1311,94 @@ class MainActivity : AppCompatActivity() {
         }
 
         dialog.show()
+    }
+
+    /**
+     * v1.2.8：启动时检查更新
+     * - 异步拉取网站 version.json，对比 versionName（按点分段的数字大小比较）
+     * - 本地版本 < 网站版本：弹更新对话框
+     *   - 「立即更新」：打开下载页（介绍页）
+     *   - 「我知道了」：记录该版本号到 SharedPreferences，该版本不再弹出
+     * - 网络失败静默忽略，不打扰用户
+     */
+    private fun checkForUpdate() {
+        thread {
+            try {
+                val url = "https://2997669349awa-blip.github.io/MUSIC-plan/version.json"
+                val req = okhttp3.Request.Builder()
+                    .url(url)
+                    .header("User-Agent", "Mozilla/5.0 (Linux; Android 10)")
+                    .build()
+                val resp = okhttp3.OkHttpClient.Builder()
+                    .connectTimeout(5, java.util.concurrent.TimeUnit.SECONDS)
+                    .readTimeout(8, java.util.concurrent.TimeUnit.SECONDS)
+                    .build()
+                    .newCall(req).execute()
+                val body = resp.body?.string() ?: return@thread
+                val json = org.json.JSONObject(body)
+
+                val remoteVersion = json.optString("versionName", "")
+                val updateMsg = json.optString("updateMsg", "发现新版本，建议更新。")
+                val downloadUrl = json.optString(
+                    "downloadUrl",
+                    "https://2997669349awa-blip.github.io/MUSIC-plan/"
+                )
+                if (remoteVersion.isBlank()) return@thread
+
+                val localVersion = packageManager
+                    .getPackageInfo(packageName, 0).versionName ?: return@thread
+
+                // 版本号比较：1.11 < 1.14，按点分段转数字逐一比
+                if (!isVersionNewer(remoteVersion, localVersion)) return@thread
+
+                // 该版本已被用户忽略，不再弹
+                val sp = getSharedPreferences("update_prefs", MODE_PRIVATE)
+                if (sp.getString("ignored_version", "") == remoteVersion) return@thread
+
+                runOnUiThread {
+                    if (isFinishing || isDestroyed) return@runOnUiThread
+                    AlertDialog.Builder(this)
+                        .setTitle("发现新版本")
+                        .setMessage("最新版本：$remoteVersion（当前 $localVersion）\n\n$updateMsg")
+                        .setCancelable(false)
+                        // 左：我知道了 → 忽略该版本，下次不再弹
+                        .setNeutralButton("我知道了") { d, _ ->
+                            sp.edit().putString("ignored_version", remoteVersion).apply()
+                            d.dismiss()
+                        }
+                        // 右：立即更新 → 跳转下载页
+                        .setPositiveButton("立即更新") { d, _ ->
+                            d.dismiss()
+                            try {
+                                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(downloadUrl))
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                startActivity(intent)
+                            } catch (e: Exception) {
+                                Toast.makeText(this, "无法打开浏览器", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                        .show()
+                }
+            } catch (e: Exception) {
+                // 网络失败静默忽略
+            }
+        }
+    }
+
+    /**
+     * 判断 remote 是否比 local 新（按点分段数字比较）
+     * 例：1.14 > 1.11 → true；1.2.8 == 1.2.8 → false
+     */
+    private fun isVersionNewer(remote: String, local: String): Boolean {
+        val r = remote.split(".").map { it.toIntOrNull() ?: 0 }
+        val l = local.split(".").map { it.toIntOrNull() ?: 0 }
+        val maxLen = maxOf(r.size, l.size)
+        for (i in 0 until maxLen) {
+            val rv = r.getOrElse(i) { 0 }
+            val lv = l.getOrElse(i) { 0 }
+            if (rv > lv) return true
+            if (rv < lv) return false
+        }
+        return false  // 完全相等
     }
 }
