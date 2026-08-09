@@ -401,7 +401,7 @@
       <svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
     </div>
     <span>MUSIC plan</span>
-    <span class="nav-version">v1.2.8</span>
+    <span class="nav-version">v1.2.9</span>
   </div>
 </nav>
 
@@ -481,13 +481,26 @@
 <section id="versions">
   <div class="section-label">// CHANGELOG</div>
   <h2 class="section-title">每一次更新<br>都算数</h2>
-  <p class="section-desc">从 v1.0.0 首发到 v1.2.8，30+ 次迭代打磨。</p>
+  <p class="section-desc">从 v1.0.0 首发到 v1.2.9，30+ 次迭代打磨。</p>
 
   <div class="timeline">
     <div class="version latest">
       <div class="version-head">
+        <span class="version-num">v1.2.9</span>
+        <span class="version-date">2026.08.09 · CURRENT</span>
+      </div>
+      <ul>
+        <li>听歌识曲全面修复：添加 15s 全局超时 + UI 20s 超时兜底，彻底解决识别卡死问题</li>
+        <li>网页版歌词同步优化：用 requestAnimationFrame 替代 timeupdate，延迟降低至 16ms 内</li>
+        <li>网页版支持逐字卡拉OK高亮（YRC 歌词），未唱白色、已唱绿色</li>
+        <li>网页版播放错误修复：失败后立即停止，不再持续播放</li>
+        <li>新增版本检查功能：App 启动时自动检测更新，支持"忽略此版本"免打扰</li>
+      </ul>
+    </div>
+    <div class="version">
+      <div class="version-head">
         <span class="version-num">v1.2.8</span>
-        <span class="version-date">2026.08.02 · CURRENT</span>
+        <span class="version-date">2026.08.02</span>
       </div>
       <ul>
         <li>PV 播放器改用 TextureView 替代 SurfaceView，彻底修复画面比例变形/拉伸</li>
@@ -580,7 +593,7 @@
   <p class="section-desc">支持 Android 10+ 设备，两个版本任选。</p>
 
   <div class="download-grid">
-    <a href="https://github.com/2997669349awa-blip/MUSIC-plan/releases/latest/download/musicplan-v1.2.8-phone.apk" class="dl-card">
+    <a href="https://github.com/2997669349awa-blip/MUSIC-plan/releases/latest/download/musicplan-v1.2.9-phone.apk" class="dl-card">
       <div class="dl-platform">
         <div class="dl-glyph">
           <svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
@@ -592,7 +605,7 @@
       </div>
       <span class="btn btn-primary">下载手机版</span>
     </a>
-    <a href="https://github.com/2997669349awa-blip/MUSIC-plan/releases/latest/download/musicplan-v1.2.8-tv.apk" class="dl-card">
+    <a href="https://github.com/2997669349awa-blip/MUSIC-plan/releases/latest/download/musicplan-v1.2.9-tv.apk" class="dl-card">
       <div class="dl-platform">
         <div class="dl-glyph">
           <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
@@ -621,7 +634,7 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-info">
-      <b>MUSIC plan</b> · v1.2.8<br>
+      <b>MUSIC plan</b> · v1.2.9<br>
       本软件仅供技术学习与交流，<br>
       所有音乐内容来自搜索引擎公开结果，<br>
       版权归原作者所有。如侵权请联系删除。

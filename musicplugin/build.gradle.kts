@@ -11,8 +11,8 @@ android {
         applicationId = "com.example.musicplugin"
         minSdk = 29
         targetSdk = 34
-        versionCode = 35
-        versionName = "1.2.8"
+        versionCode = 36
+        versionName = "1.2.9"
     }
 
     signingConfigs {

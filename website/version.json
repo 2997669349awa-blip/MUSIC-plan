@@ -1,6 +1,6 @@
 {
-  "versionName": "1.2.8",
-  "versionCode": 35,
-  "updateMsg": "发现新版本，建议立即更新以获得更好体验。",
+  "versionName": "1.2.9",
+  "versionCode": 36,
+  "updateMsg": "发现新版本 v1.2.9，主要更新：听歌识曲超时修复、网页版歌词同步优化、逐字高亮支持等。",
   "downloadUrl": "https://2997669349awa-blip.github.io/MUSIC-plan/"
 }

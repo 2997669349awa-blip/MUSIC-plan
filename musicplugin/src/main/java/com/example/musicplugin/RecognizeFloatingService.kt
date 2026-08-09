@@ -74,6 +74,7 @@ class RecognizeFloatingService : Service() {
     // 回调 / 动画引用
     private var longPressRunnable: Runnable? = null
     private var recordTickRunnable: Runnable? = null
+    private var recognizeTimeoutRunnable: Runnable? = null
     private var resultResetRunnable: Runnable? = null
     private var failedResetRunnable: Runnable? = null
     private var noteTransition: AnimatorSet? = null
@@ -602,12 +603,27 @@ class RecognizeFloatingService : Service() {
             enterFailed("录音失败")
             return
         }
+
+        var callbackCalled = false
+
+        // UI 超时兜底：20s 后强制超时（比 API 超时 15s 多 5s 缓冲）
+        recognizeTimeoutRunnable?.let { handler.removeCallbacks(it) }
+        recognizeTimeoutRunnable = Runnable {
+            if (!callbackCalled && currentState == State.RECOGNIZING) {
+                enterFailed("识别超时")
+            }
+        }
+        handler.postDelayed(recognizeTimeoutRunnable!!, 20000)
+
         RecognizeApi.recognize(this, f) { result ->
             handler.post {
+                callbackCalled = true
+                recognizeTimeoutRunnable?.let { handler.removeCallbacks(it) }
+                recognizeTimeoutRunnable = null
                 if (result.success) {
                     searchAndShowResult(result.title ?: "", result.artist ?: "")
                 } else {
-                    enterFailed("识别失败")
+                    enterFailed(result.errorMsg ?: "识别失败")
                 }
             }
         }
@@ -658,9 +674,12 @@ class RecognizeFloatingService : Service() {
     private fun cancelPendingRunnables() {
         longPressRunnable?.let { handler.removeCallbacks(it) }
         recordTickRunnable?.let { handler.removeCallbacks(it) }
+        recognizeTimeoutRunnable?.let { handler.removeCallbacks(it) }
         resultResetRunnable?.let { handler.removeCallbacks(it) }
         failedResetRunnable?.let { handler.removeCallbacks(it) }
+        longPressRunnable = null
         recordTickRunnable = null
+        recognizeTimeoutRunnable = null
         resultResetRunnable = null
         failedResetRunnable = null
     }

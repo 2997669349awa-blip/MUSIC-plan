@@ -40,6 +40,8 @@ class RecognizeActivity : AppCompatActivity() {
     private var audioFile: File? = null
     private var recorder: AudioRecorder? = null
     private val handler = Handler(Looper.getMainLooper())
+    private var recognizeTimeoutRunnable: Runnable? = null
+    private var isRecognizing = false
 
     // 识别结果
     private var matchedSong: MusicApi.OnlineSong? = null
@@ -220,13 +222,32 @@ class RecognizeActivity : AppCompatActivity() {
             btnStart.visibility = View.VISIBLE
             return
         }
+
+        isRecognizing = true
+        var callbackCalled = false
+
+        // UI 超时兜底：20s 后强制超时
+        recognizeTimeoutRunnable?.let { handler.removeCallbacks(it) }
+        recognizeTimeoutRunnable = Runnable {
+            if (!callbackCalled && isRecognizing) {
+                isRecognizing = false
+                tvStatus.text = "识别超时，请重试"
+                btnStart.visibility = View.VISIBLE
+                btnStart.text = "重新识别"
+            }
+        }
+        handler.postDelayed(recognizeTimeoutRunnable!!, 20000)
+
         RecognizeApi.recognize(this, f) { result ->
             runOnUiThread {
+                callbackCalled = true
+                recognizeTimeoutRunnable?.let { handler.removeCallbacks(it) }
+                recognizeTimeoutRunnable = null
+                isRecognizing = false
                 if (result.success) {
                     tvResult.visibility = View.VISIBLE
                     tvResult.text = "${result.title}\n${result.artist}"
                     tvStatus.text = "识别成功，正在回查曲库..."
-                    // 用歌名+歌手在当前音乐源搜索
                     searchInSource(result.title ?: "", result.artist ?: "")
                 } else {
                     tvStatus.text = "识别失败：${result.errorMsg}"
@@ -270,5 +291,11 @@ class RecognizeActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        recognizeTimeoutRunnable?.let { handler.removeCallbacks(it) }
+        recognizeTimeoutRunnable = null
     }
 }

@@ -1,4 +1,0 @@
-#Mon Aug 03 06:22:19 UTC 2026
-base.0=/workspace/FileManager/musicplugin/build/intermediates/dex/tvRelease/minifyTvReleaseWithR8/classes.dex
-renamed.0=classes.dex
-path.0=classes.dex

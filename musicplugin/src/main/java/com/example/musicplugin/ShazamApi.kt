@@ -10,7 +10,9 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import org.json.JSONObject
 import java.io.File
 import java.util.UUID
+import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
+import java.util.concurrent.atomic.AtomicBoolean
 
 /**
  * v1.1.8：Shazam 听歌识曲 API（完全免费，无需注册）
@@ -48,13 +50,35 @@ object ShazamApi {
         val errorMsg: String? = null
     )
 
+    private const val OVERALL_TIMEOUT_SECONDS = 15L
+
     fun recognize(context: Context, audioFile: File, callback: (RecognizeResult) -> Unit) {
         Thread {
+            val called = AtomicBoolean(false)
+            val latch = CountDownLatch(1)
+
+            fun deliver(result: RecognizeResult) {
+                if (called.compareAndSet(false, true)) {
+                    callback(result)
+                    latch.countDown()
+                }
+            }
+
+            // 超时守护：15s 后强制返回失败
+            Thread {
+                try {
+                    if (!latch.await(OVERALL_TIMEOUT_SECONDS, TimeUnit.SECONDS)) {
+                        Log.w(TAG, "识别超时（${OVERALL_TIMEOUT_SECONDS}s）")
+                        deliver(RecognizeResult(false, errorMsg = "识别超时，请重试"))
+                    }
+                } catch (_: InterruptedException) {}
+            }.start()
+
             try {
                 // 1. 生成指纹
                 val signatureUri = ShazamFingerprint.generateSignature(audioFile)
                 if (signatureUri == null) {
-                    callback(RecognizeResult(false, errorMsg = "指纹生成失败"))
+                    deliver(RecognizeResult(false, errorMsg = "指纹生成失败"))
                     return@Thread
                 }
                 val peakCount = ShazamFingerprint.getLastPeakCount()
@@ -63,7 +87,7 @@ object ShazamApi {
                 // 2. 获取 Bearer token（带缓存）
                 val token = getBearerToken(context)
                 if (token == null) {
-                    callback(RecognizeResult(false, errorMsg = "获取认证失败，请检查网络"))
+                    deliver(RecognizeResult(false, errorMsg = "获取认证失败，请检查网络"))
                     return@Thread
                 }
 
@@ -104,7 +128,7 @@ object ShazamApi {
                 Log.i(TAG, "发送匹配请求...")
                 val resp = client.newCall(request).execute()
                 val body = resp.body?.string() ?: run {
-                    callback(RecognizeResult(false, errorMsg = "无响应"))
+                    deliver(RecognizeResult(false, errorMsg = "无响应"))
                     return@Thread
                 }
 
@@ -113,36 +137,33 @@ object ShazamApi {
 
                 if (resp.code == 401) {
                     clearTokenCache(context)
-                    callback(RecognizeResult(false, errorMsg = "认证过期，请重试"))
+                    deliver(RecognizeResult(false, errorMsg = "认证过期，请重试"))
                     return@Thread
                 }
 
                 if (!resp.isSuccessful) {
-                    callback(RecognizeResult(false, errorMsg = "服务错误 (${resp.code})"))
+                    deliver(RecognizeResult(false, errorMsg = "服务错误 (${resp.code})"))
                     return@Thread
                 }
 
                 val json = JSONObject(body)
 
-                // 调试：输出响应顶层 keys
                 val topKeys = json.keys().asSequence().joinToString(", ")
                 Log.i(TAG, "响应顶层keys: $topKeys")
 
-                // Shazam match API v2 响应格式：
-                // { results: { matches: [{id: "xxx", ...}] }, resources: { "shazam-songs": { "xxx": { title, artist, ... } } } }
                 val results = json.optJSONObject("results") ?: run {
-                    callback(RecognizeResult(false, errorMsg = "未识别到歌曲(无results)\n峰值:$peakCount 响应:${body.take(200)}"))
+                    deliver(RecognizeResult(false, errorMsg = "未识别到歌曲(无results)\n峰值:$peakCount 响应:${body.take(200)}"))
                     return@Thread
                 }
                 val matches = results.optJSONArray("matches")
                 if (matches == null || matches.length() == 0) {
-                    callback(RecognizeResult(false, errorMsg = "未识别到歌曲(无matches)\n峰值:$peakCount 响应:${body.take(200)}"))
+                    deliver(RecognizeResult(false, errorMsg = "未识别到歌曲(无matches)\n峰值:$peakCount 响应:${body.take(200)}"))
                     return@Thread
                 }
 
                 val matchId = matches.optJSONObject(0)?.optString("id", "") ?: ""
                 if (matchId.isEmpty()) {
-                    callback(RecognizeResult(false, errorMsg = "未识别到歌曲(无matchId)\n峰值:$peakCount 响应:${body.take(200)}"))
+                    deliver(RecognizeResult(false, errorMsg = "未识别到歌曲(无matchId)\n峰值:$peakCount 响应:${body.take(200)}"))
                     return@Thread
                 }
 
@@ -151,13 +172,10 @@ object ShazamApi {
                 val song = shazamSongs?.optJSONObject(matchId)
 
                 if (song == null) {
-                    callback(RecognizeResult(false, errorMsg = "未识别到歌曲(无song)\n峰值:$peakCount matchId:$matchId 响应:${body.take(200)}"))
+                    deliver(RecognizeResult(false, errorMsg = "未识别到歌曲(无song)\n峰值:$peakCount matchId:$matchId 响应:${body.take(200)}"))
                     return@Thread
                 }
 
-                // Shazam API v2 遵循 JSON:API 规范：
-                // 标题在 attributes.name，歌手在 attributes.subtitle
-                // 兼容旧格式：直接 title / artist 字段
                 val attrs = song.optJSONObject("attributes")
                 val title = song.optString("title", "")
                     .ifEmpty { attrs?.optString("name", "") ?: "" }
@@ -168,14 +186,14 @@ object ShazamApi {
                     .ifEmpty { attrs?.optString("artist", "") ?: "" }
 
                 if (title.isEmpty()) {
-                    callback(RecognizeResult(false, errorMsg = "未识别到歌曲(无title)\n峰值:$peakCount 响应:${body.take(500)}"))
+                    deliver(RecognizeResult(false, errorMsg = "未识别到歌曲(无title)\n峰值:$peakCount 响应:${body.take(500)}"))
                     return@Thread
                 }
 
-                callback(RecognizeResult(true, title, artist))
+                deliver(RecognizeResult(true, title, artist))
             } catch (e: Exception) {
                 Log.e(TAG, "识别异常: ${e.message}")
-                callback(RecognizeResult(false, errorMsg = "识别异常: ${e.message}"))
+                deliver(RecognizeResult(false, errorMsg = "识别异常: ${e.message}"))
             }
         }.start()
     }
