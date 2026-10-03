@@ -22,6 +22,108 @@ object MusicApi {
     private const val TAG = "MusicApi"
     private const val BASE = "https://music.163.com/api"
 
+    // ==================== weapi 加密接口（参照 NeteaseApi.kt / LiquidHub）====================
+    // 网易云对无 Cookie 的请求会返回 code=-462 风控，且 /api/* 明文端点基本只回 url=null，
+    // 因此搜索 / 播放地址 / 歌词统一改走 /weapi/*（AES-CBC 两层 + RSA 加密随机密钥）。
+    private const val WAPI = "https://music.163.com"
+    private const val AES_BASE_KEY = "0CoJUm6Qyw8W8jud"
+    private const val AES_IV = "0102030405060708"
+    private const val PUB_MOD =
+        "e0b509f6259df8642dbc35662901477df22677ec152b5ff68ace615bb7b725152b3ab17a876aea8a5aa76d2e417629ec4" +
+            "ee341f56135fccf695280104e0312ecbda92557c93870114af6c9d05c4f7f0c3685b7a46bee255932575cce10b424d8" +
+            "13cfe4875d3e82047b97ddef52741d546b8e289dc6935b3ece0462db0a22b8e7"
+    private const val PUB_EXP = "010001"
+    private const val CHARSET = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    private val secureRandom = java.security.SecureRandom()
+
+    /**
+     * 组装网易云鉴权 Cookie 请求头。
+     * 设置里填的可能是纯 MUSIC_U 值，也可能直接粘了整串 Cookie，这里都兼容。
+     */
+    private fun cookieHeader(): String? {
+        if (musicCookie.isBlank()) return null
+        return if (musicCookie.contains("MUSIC_U=")) musicCookie else "MUSIC_U=$musicCookie"
+    }
+
+    private fun aesEncrypt(text: String, key: String): String {
+        val cipher = javax.crypto.Cipher.getInstance("AES/CBC/PKCS5Padding")
+        cipher.init(
+            javax.crypto.Cipher.ENCRYPT_MODE,
+            javax.crypto.spec.SecretKeySpec(key.toByteArray(Charsets.UTF_8), "AES"),
+            javax.crypto.spec.IvParameterSpec(AES_IV.toByteArray(Charsets.UTF_8))
+        )
+        return android.util.Base64.encodeToString(
+            cipher.doFinal(text.toByteArray(Charsets.UTF_8)),
+            android.util.Base64.NO_WRAP
+        )
+    }
+
+    /** weapi 加密：明文 → AES(baseKey) → AES(随机 secret) → base64，secret 再用 RSA 加密 */
+    private fun weapiEncrypt(payload: JSONObject): Pair<String, String> {
+        val secret = buildString { repeat(16) { append(CHARSET[secureRandom.nextInt(CHARSET.length)]) } }
+        val params = aesEncrypt(aesEncrypt(payload.toString(), AES_BASE_KEY), secret)
+        val reversed = secret.toByteArray(Charsets.UTF_8).reversedArray()
+        val encSecKey = java.math.BigInteger(1, reversed)
+            .modPow(java.math.BigInteger(PUB_EXP, 16), java.math.BigInteger(PUB_MOD, 16))
+            .toString(16)
+            .padStart(256, '0')
+        return params to encSecKey
+    }
+
+    /** 调用 weapi 接口，自动带上 MUSIC_U Cookie；失败返回 null */
+    private fun weapiPost(path: String, payload: JSONObject): JSONObject? {
+        val (params, encSecKey) = weapiEncrypt(payload)
+        val form = okhttp3.FormBody.Builder()
+            .add("params", params)
+            .add("encSecKey", encSecKey)
+            .build()
+        val builder = Request.Builder().url("$WAPI$path")
+            .header("User-Agent", "Mozilla/5.0 (Linux; Android 10)")
+            .header("Referer", "https://music.163.com/")
+            .header("Origin", "https://music.163.com")
+            .post(form)
+        cookieHeader()?.let { builder.header("Cookie", it) }
+        val body = client.newCall(builder.build()).execute().body?.string() ?: return null
+        return runCatching { JSONObject(body) }.getOrNull()
+    }
+
+    /** weapi 搜索：type=1 歌曲，type=1004 MV */
+    private fun weapiSearchJson(keyword: String, limit: Int, type: Int = 1): JSONObject? =
+        weapiPost("/weapi/cloudsearch/get/web?csrf_token=", JSONObject().apply {
+            put("s", keyword)
+            put("type", type)
+            put("limit", limit)
+            put("offset", 0)
+            put("total", true)
+        })
+
+    /** 解析网易云搜索结果，兼容 weapi(ar/al) 与明文(artists/album) 两种字段结构 */
+    private fun parseNeteaseSong(s: JSONObject): OnlineSong {
+        val ar = s.optJSONArray("ar") ?: s.optJSONArray("artists")
+        val artistName = buildString {
+            if (ar != null) for (i in 0 until ar.length()) {
+                val n = ar.optJSONObject(i)?.optString("name", "") ?: ""
+                if (n.isNotEmpty()) {
+                    if (isNotEmpty()) append("/")
+                    append(n)
+                }
+            }
+        }.ifEmpty { s.optJSONObject("artist")?.optString("name", "") ?: "<未知>" }
+        val al = s.optJSONObject("al") ?: s.optJSONObject("album")
+        val picUrl = al?.optString("picUrl", "")?.takeIf { it.isNotEmpty() }?.replaceFirst("http://", "https://")
+        return OnlineSong(
+            id = s.optLong("id"),
+            name = s.optString("name", "未知歌曲"),
+            artist = artistName,
+            album = al?.optString("name", "") ?: "",
+            duration = s.optLong("dt", s.optLong("duration", 0)),
+            songUrl = null,
+            mvId = if (s.optInt("mvid", 0) > 0) s.optLong("mvid") else null,
+            picUrl = picUrl,
+            source = MusicSource.NETEASE
+        )
+    }
+
     /**
      * v1.1.1：音乐源枚举
      * - NETEASE：网易云音乐（默认，播放+搜索+歌词）
@@ -47,6 +149,15 @@ object MusicApi {
         .connectTimeout(10, java.util.concurrent.TimeUnit.SECONDS)
         .readTimeout(15, java.util.concurrent.TimeUnit.SECONDS)
         .followRedirects(true)
+        // 网易云无 Cookie 会被风控拦截（code=-462），这里统一给 music.163.com 的请求补上 MUSIC_U
+        .addInterceptor { chain ->
+            val req = chain.request()
+            val ck = cookieHeader()
+            val next = if (ck != null && req.url.host.endsWith("music.163.com") && req.header("Cookie") == null) {
+                req.newBuilder().header("Cookie", ck).build()
+            } else req
+            chain.proceed(next)
+        }
         .build()
 
     /**
@@ -165,25 +276,22 @@ object MusicApi {
     }
 
     /**
-     * 网易云搜索
+     * 网易云搜索（weapi /weapi/cloudsearch/get/web，自动带 MUSIC_U Cookie）
+     * 修复：原明文 /api/search/get 在无 Cookie 时返回 code=-462 风控，导致搜索直接失败
      */
     private fun searchNetease(keyword: String, callback: (List<OnlineSong>?, String?) -> Unit) {
         thread {
             try {
-                val encoded = java.net.URLEncoder.encode(keyword, "UTF-8")
-                val url = "$BASE/search/get?s=$encoded&type=1&limit=30&offset=0"
-                val request = Request.Builder().url(url)
-                    .header("User-Agent", "Mozilla/5.0 (Linux; Android 10)")
-                    .header("Referer", "https://music.163.com")
-                    .build()
-                val response = client.newCall(request).execute()
-                val body = response.body?.string() ?: run {
+                val json = weapiSearchJson(keyword, 30)
+                if (json == null) {
                     callback(null, "搜索失败：无响应")
                     return@thread
                 }
-                val json = JSONObject(body)
-                if (json.optInt("code", -1) != 200) {
-                    callback(null, "搜索失败：${json.optString("msg", "服务器错误")}")
+                val code = json.optInt("code", -1)
+                if (code != 200) {
+                    val msg = json.optString("message", "").ifEmpty { "code=$code" }
+                    val hint = if (hasCookie()) "" else "（请在设置中填写 MUSIC_U Cookie）"
+                    callback(null, "搜索失败：$msg$hint")
                     return@thread
                 }
                 val songs = json.optJSONObject("result")?.optJSONArray("songs")
@@ -193,24 +301,7 @@ object MusicApi {
                 }
                 val list = mutableListOf<OnlineSong>()
                 for (i in 0 until songs.length()) {
-                    val s = songs.getJSONObject(i)
-                    val artists = s.optJSONArray("artists")
-                    val artistName = if (artists != null && artists.length() > 0)
-                        artists.getJSONObject(0).optString("name", "<未知>") else "<未知>"
-                    val albumName = s.optJSONObject("album")?.optString("name", "") ?: ""
-                    val picUrl = s.optJSONObject("album")?.optString("picUrl", null)
-                    val mvId = if (s.optInt("mvid", 0) > 0) s.optLong("mvid") else null
-                    list.add(OnlineSong(
-                        id = s.optLong("id"),
-                        name = s.optString("name", "未知歌曲"),
-                        artist = artistName,
-                        album = albumName,
-                        duration = s.optLong("duration", 0),
-                        songUrl = null,
-                        mvId = mvId,
-                        picUrl = picUrl,
-                        source = MusicSource.NETEASE
-                    ))
+                    list.add(parseNeteaseSong(songs.getJSONObject(i)))
                 }
                 callback(list, null)
             } catch (e: Exception) {
@@ -524,84 +615,35 @@ object MusicApi {
     }
 
     /**
-     * 获取歌曲播放 URL（网易云）
-     * - 免费(fee=0)歌曲不需要 Cookie
-     * - VIP 歌曲需要 MUSIC_U Cookie
-     * 先无 Cookie 尝试，失败再用 Cookie
+     * 获取歌曲播放 URL（网易云，走 weapi /weapi/song/enhance/player/url/v1 + Cookie）
+     * - 免费(fee=0)歌曲不需要 Cookie；VIP 歌曲需要 MUSIC_U Cookie
+     * - 明文 /api/song/enhance/player/url/v1 现在基本只回 code=200 + url=null，故改走 weapi
      */
     fun getSongUrl(songId: Long, callback: (String?) -> Unit) {
         thread {
             try {
-                // v1 接口，POST 请求
-                val url = "$BASE/song/enhance/player/url/v1"
-                val formBody = okhttp3.FormBody.Builder()
-                    .add("ids", "[$songId]")
-                    .add("level", "standard")
-                    .add("encodeType", "flac")
-                    .build()
-
-                // 先无 Cookie 尝试（免费歌曲可直接获取）
-                val requestNoCookie = Request.Builder().url(url)
-                    .header("User-Agent", "Mozilla/5.0 (Linux; Android 10)")
-                    .header("Referer", "https://music.163.com")
-                    .post(formBody)
-                    .build()
-                val response = client.newCall(requestNoCookie).execute()
-                val body = response.body?.string()
-                if (body != null) {
-                    val json = JSONObject(body)
-                    if (json.optInt("code", -1) == 200) {
-                        val data = json.optJSONArray("data")
-                        if (data != null && data.length() > 0) {
-                            val d = data.getJSONObject(0)
-                            val playUrl = d.optString("url", null)
-                            if (!playUrl.isNullOrEmpty()) {
-                                callback(playUrl)
-                                return@thread
-                            }
-                        }
-                    }
-                }
-
-                // 无 Cookie 失败，用 Cookie 重试（VIP 歌曲）
-                if (musicCookie.isEmpty()) {
-                    Log.w(TAG, "免费获取失败且无Cookie")
+                val json = weapiPost("/weapi/song/enhance/player/url/v1?csrf_token=", JSONObject().apply {
+                    put("ids", JSONArray().put(songId))
+                    put("level", "standard")
+                    put("encodeType", "aac")
+                })
+                if (json == null) {
+                    Log.w(TAG, "获取URL失败：无响应")
                     callback(null)
                     return@thread
                 }
-                val formBody2 = okhttp3.FormBody.Builder()
-                    .add("ids", "[$songId]")
-                    .add("level", "standard")
-                    .add("encodeType", "flac")
-                    .build()
-                val requestWithCookie = Request.Builder().url(url)
-                    .header("User-Agent", "Mozilla/5.0 (Linux; Android 10)")
-                    .header("Referer", "https://music.163.com")
-                    .header("Cookie", "MUSIC_U=$musicCookie")
-                    .post(formBody2)
-                    .build()
-                val response2 = client.newCall(requestWithCookie).execute()
-                val body2 = response2.body?.string() ?: run {
+                if (json.optInt("code", -1) != 200) {
+                    Log.w(TAG, "获取URL失败 code=${json.optInt("code")}")
                     callback(null)
                     return@thread
                 }
-                val json2 = JSONObject(body2)
-                if (json2.optInt("code", -1) != 200) {
-                    Log.w(TAG, "Cookie获取URL失败 code=${json2.optInt("code")}")
-                    callback(null)
-                    return@thread
-                }
-                val data2 = json2.optJSONArray("data")
-                if (data2 == null || data2.length() == 0) {
-                    callback(null)
-                    return@thread
-                }
-                val d2 = data2.getJSONObject(0)
-                val playUrl2 = d2.optString("url", null)
-                if (!playUrl2.isNullOrEmpty()) {
-                    callback(playUrl2)
+                val data = json.optJSONArray("data")
+                val d = if (data != null && data.length() > 0) data.getJSONObject(0) else null
+                val playUrl = d?.optString("url", "")?.takeIf { it.isNotEmpty() }
+                if (playUrl != null) {
+                    callback(playUrl)
                 } else {
-                    Log.w(TAG, "Cookie获取仍无URL fee=${d2.optInt("fee")}")
+                    Log.w(TAG, "无播放地址 fee=${d?.optInt("fee")}，VIP 歌曲请在设置中配置 MUSIC_U Cookie")
                     callback(null)
                 }
             } catch (e: Exception) {
@@ -612,26 +654,26 @@ object MusicApi {
     }
 
     /**
-     * 获取歌词（不需要 Cookie）
-     * v1.2.7：tv=-1 → tv=1，确保翻译歌词（tlyric）也能取到
+     * 获取歌词（weapi /weapi/song/lyric，自动带 Cookie）
+     * v1.2.7：lv/kv/tv 都取 1，确保翻译歌词（tlyric）也能取到
      */
     fun getLyrics(songId: Long, callback: (String?, String?) -> Unit) {
         thread {
             try {
-                val url = "$BASE/song/lyric?id=$songId&lv=1&kv=1&tv=1"
-                val request = Request.Builder().url(url)
-                    .header("User-Agent", "Mozilla/5.0 (Linux; Android 10)")
-                    .header("Referer", "https://music.163.com")
-                    .build()
-                val response = client.newCall(request).execute()
-                val body = response.body?.string() ?: run {
+                val json = weapiPost("/weapi/song/lyric?csrf_token=", JSONObject().apply {
+                    put("id", songId)
+                    put("lv", 1)
+                    put("kv", 1)
+                    put("tv", 1)
+                })
+                if (json == null) {
                     callback(null, null)
                     return@thread
                 }
-                val json = JSONObject(body)
-                val lrc = json.optJSONObject("lrc")?.optString("lyric", null)
-                val tLrc = json.optJSONObject("tlyric")?.optString("lyric", null)
-                callback(lrc, tLrc)
+                callback(
+                    json.optJSONObject("lrc")?.optString("lyric", null),
+                    json.optJSONObject("tlyric")?.optString("lyric", null)
+                )
             } catch (e: Exception) {
                 Log.e(TAG, "获取歌词失败: ${e.message}")
                 callback(null, null)
