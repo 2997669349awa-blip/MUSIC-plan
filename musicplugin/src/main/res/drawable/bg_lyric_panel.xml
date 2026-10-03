@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    v1.2.7：歌词面板背景（半透明深色 + 顶部底部渐变遮罩，营造歌词淡入淡出感）
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#F2080808" />
+        </shape>
+    </item>
+</layer-list>

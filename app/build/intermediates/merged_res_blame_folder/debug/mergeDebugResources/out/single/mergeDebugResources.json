@@ -1,0 +1,146 @@
+[
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/drawable_ic_home.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/drawable/ic_home.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/drawable_ic_ppt.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/drawable/ic_ppt.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/drawable_ic_text.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/drawable/ic_text.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/menu_menu_main.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/menu/menu_main.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/xml_file_paths.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/xml/file_paths.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/drawable_ic_up.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/drawable/ic_up.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/drawable_ic_sheet.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/drawable/ic_sheet.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/drawable_ic_refresh.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/drawable/ic_refresh.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/drawable_ic_archive.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/drawable/ic_archive.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/drawable_ic_back.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/drawable/ic_back.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/drawable_ic_doc.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/drawable/ic_doc.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/layout_activity_image_viewer.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/layout/activity_image_viewer.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/layout_activity_settings.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/layout/activity_settings.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/drawable_item_background.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/drawable/item_background.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/layout_activity_text_viewer.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/layout/activity_text_viewer.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/layout_activity_music_player.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/layout/activity_music_player.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/drawable_ic_image.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/drawable/ic_image.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/layout_activity_main.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/layout_activity_apk_tools.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/layout/activity_apk_tools.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/drawable_ic_terminal.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/drawable/ic_terminal.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/drawable_ic_more.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/drawable/ic_more.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/drawable_address_bar_bg.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/drawable/address_bar_bg.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/drawable_ic_apk.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/drawable/ic_apk.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/drawable_ic_file.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/drawable/ic_file.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-debug-36:/layout_item_file_grid.xml.flat",
+        "source": "com.example.filemanager.app-main-38:/layout/item_file_grid.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/drawable_ic_folder.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/drawable/ic_folder.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/drawable_play_button_bg.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/drawable/play_button_bg.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/drawable_ic_audio.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/drawable/ic_audio.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/drawable_ic_video.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/drawable/ic_video.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/layout_item_file.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/layout/item_file.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/drawable_ic_pdf.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/drawable/ic_pdf.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/layout_item_file_grid.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/layout/item_file_grid.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-debug-36:/layout_activity_terminal.xml.flat",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/layout/activity_terminal.xml"
+    }
+]

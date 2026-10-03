@@ -1,0 +1,20 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="#FFFFFF">
+    <!-- 终端窗口边框 -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.8"
+        android:pathData="M3,4 L21,4 L21,20 L3,20 Z" />
+    <!-- 提示符 > 和光标 _ -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M6,9 L9,11.5 L6,14 L6,12.5 L7.3,11.5 L6,10.5 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M11,13 L17,13 L17,14.4 L11,14.4 Z" />
+</vector>

@@ -1,0 +1,16 @@
+<resources>
+    <!-- v1.2.6：UI 升级 - 赛博汽水风深色主题 -->
+    <style name="Theme.MusicPlugin" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">#FF1ED760</item>
+        <item name="colorPrimaryVariant">#FF1DB954</item>
+        <item name="colorSecondary">#FFB8FF5C</item>
+        <item name="colorOnPrimary">#FF000000</item>
+        <item name="colorAccent">#FF1ED760</item>
+        <item name="android:statusBarColor">#FF080808</item>
+        <item name="android:navigationBarColor">#FF080808</item>
+        <item name="android:windowBackground">#FF080808</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">#FFF5F5F5</item>
+        <item name="android:textColorSecondary">#FF8A8A8A</item>
+    </style>
+</resources>

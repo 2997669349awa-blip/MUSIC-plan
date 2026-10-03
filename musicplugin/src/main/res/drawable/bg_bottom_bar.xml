@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    v1.2.7：底部播放栏背景（玻璃态 + 顶部细线分隔）
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 主体半透明深色玻璃态 -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#F2080808" />
+        </shape>
+    </item>
+    <!-- 顶部 1px 分隔线，绿色微光 -->
+    <item android:height="1dp" android:gravity="top">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="0"
+                android:startColor="#001ED760"
+                android:centerColor="#331ED760"
+                android:endColor="#001ED760" />
+        </shape>
+    </item>
+</layer-list>

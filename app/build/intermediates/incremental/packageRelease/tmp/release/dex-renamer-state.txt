@@ -1,0 +1,4 @@
+#Thu Jul 02 10:07:09 UTC 2026
+base.0=/workspace/FileManager/app/build/intermediates/dex/release/mergeDexRelease/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

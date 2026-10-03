@@ -1,0 +1,16 @@
+# Android build outputs
+musicplugin/build/
+*.apk
+*.aab
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Gradle
+.gradle/

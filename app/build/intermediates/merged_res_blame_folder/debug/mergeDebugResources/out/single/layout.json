@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-mergeDebugResources-35:/layout/activity_music_player.xml",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/layout/activity_music_player.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-mergeDebugResources-35:/layout/item_file.xml",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/layout/item_file.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-mergeDebugResources-35:/layout/activity_image_viewer.xml",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/layout/activity_image_viewer.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-mergeDebugResources-35:/layout/item_file_grid.xml",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/layout/item_file_grid.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-mergeDebugResources-35:/layout/activity_apk_tools.xml",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/layout/activity_apk_tools.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-mergeDebugResources-35:/layout/activity_terminal.xml",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/layout/activity_terminal.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-mergeDebugResources-35:/layout/activity_text_viewer.xml",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/layout/activity_text_viewer.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-mergeDebugResources-35:/layout/item_file_grid.xml",
+        "source": "com.example.filemanager.app-main-38:/layout/item_file_grid.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-mergeDebugResources-35:/layout/activity_main.xml",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-mergeDebugResources-35:/layout/activity_settings.xml",
+        "source": "/root/.gradle/daemon/8.14.4/com.example.filemanager.app-main-38:/layout/activity_settings.xml"
+    }
+]

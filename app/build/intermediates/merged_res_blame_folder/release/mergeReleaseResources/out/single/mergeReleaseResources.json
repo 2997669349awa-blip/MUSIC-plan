@@ -1,0 +1,142 @@
+[
+    {
+        "merged": "com.example.filemanager.app-release-36:/layout_activity_main.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/drawable_ic_folder.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/drawable/ic_folder.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/layout_activity_apk_tools.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/layout/activity_apk_tools.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/drawable_ic_pdf.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/drawable/ic_pdf.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/layout_activity_terminal.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/layout/activity_terminal.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/layout_activity_image_viewer.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/layout/activity_image_viewer.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/drawable_ic_sheet.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/drawable/ic_sheet.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/drawable_ic_terminal.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/drawable/ic_terminal.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/drawable_ic_audio.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/drawable/ic_audio.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/drawable_ic_more.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/drawable/ic_more.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/drawable_ic_video.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/drawable/ic_video.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/drawable_ic_archive.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/drawable/ic_archive.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/drawable_ic_up.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/drawable/ic_up.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/drawable_ic_home.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/drawable/ic_home.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/layout_activity_settings.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/layout/activity_settings.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/drawable_ic_refresh.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/drawable/ic_refresh.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/layout_item_file_grid.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/layout/item_file_grid.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/drawable_item_background.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/drawable/item_background.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/drawable_play_button_bg.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/drawable/play_button_bg.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/drawable_ic_back.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/drawable/ic_back.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/layout_activity_text_viewer.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/layout/activity_text_viewer.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/menu_menu_main.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/menu/menu_main.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/drawable_ic_apk.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/drawable/ic_apk.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/drawable_ic_ppt.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/drawable/ic_ppt.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/layout_item_file.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/layout/item_file.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/layout_activity_music_player.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/layout/activity_music_player.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/drawable_address_bar_bg.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/drawable/address_bar_bg.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/drawable_ic_file.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/drawable/ic_file.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/drawable_ic_doc.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/drawable/ic_doc.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/drawable_ic_text.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/drawable/ic_text.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/xml_file_paths.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/xml/file_paths.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/drawable_ic_image.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/drawable/ic_image.xml"
+    },
+    {
+        "merged": "com.example.filemanager.app-release-36:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.example.filemanager.app-main-37:/drawable/ic_launcher_foreground.xml"
+    }
+]
